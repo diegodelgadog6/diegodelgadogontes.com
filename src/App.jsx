@@ -4,39 +4,25 @@ import { useState } from 'react'
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [isLightTheme, setIsLightTheme] = useState(false)
 
   return (
-    <div className={isLightTheme ? 'app theme-light' : 'app'}>
+    <div className="app">
       <header className="topbar">
         <nav className="topbar-inner">
           <Link to="/" className="brand">
-            <span className="brand-icon">&lt;/&gt;</span>
+            <span className="brand-icon">⌘</span>
             <span className="brand-text">The Kinetic Architect</span>
           </Link>
 
           <button
             className="menu-toggle"
             onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label="Abrir menú"
+            aria-label="Menú"
             type="button"
+            title="Menú"
           >
-            {menuOpen ? 'Cerrar' : 'Menú'}
+            <span className="menu-bars">☰</span>
           </button>
-
-          <div className={menuOpen ? 'nav-links nav-links-open' : 'nav-links'}>
-            <NavLink to="/about" className="nav-link" onClick={() => setMenuOpen(false)}>Profile</NavLink>
-            <NavLink to="/projects" className="nav-link" onClick={() => setMenuOpen(false)}>Projects</NavLink>
-            <NavLink to="/experience" className="nav-link" onClick={() => setMenuOpen(false)}>Experience</NavLink>
-            <Link to="/contact" className="btn btn-primary" onClick={() => setMenuOpen(false)}>Get in Touch</Link>
-            <button
-              className="btn btn-ghost"
-              type="button"
-              onClick={() => setIsLightTheme((prev) => !prev)}
-            >
-              {isLightTheme ? 'Modo oscuro' : 'Modo claro'}
-            </button>
-          </div>
         </nav>
       </header>
 
@@ -154,13 +140,13 @@ function App() {
       <footer className="footer">
         <div>
           <strong>The Kinetic Architect</strong>
-          <p>Built with technical precision.</p>
+          <p>© 2024 Kinetic Architect. Built with technical precision.</p>
         </div>
         <div className="footer-links">
-          <Link to="/projects">Github</Link>
-          <Link to="/about">LinkedIn</Link>
-          <Link to="/experience">Twitter</Link>
-          <Link to="/contact">Email</Link>
+          <Link to="/projects">GITHUB</Link>
+          <Link to="/about">LINKEDIN</Link>
+          <Link to="/experience">TWITTER</Link>
+          <Link to="/contact">EMAIL</Link>
         </div>
       </footer>
     </div>

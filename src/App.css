@@ -11,18 +11,6 @@
     --outline: #434656;
 }
 
-.theme-light {
-    --bg: #eef3ff;
-    --bg-soft: #dfe8ff;
-    --surface: #ffffff;
-    --surface-high: #f6f8ff;
-    --text: #0f1a38;
-    --muted: #45537a;
-    --primary: #3552be;
-    --primary-strong: #1336b5;
-    --outline: #b6c2eb;
-}
-
 .app {
     background: radial-gradient(circle at 90% 10%, rgba(46, 91, 255, 0.22), transparent 30%), var(--bg);
     color: var(--text);
@@ -36,10 +24,6 @@
     border-bottom: 1px solid rgba(67, 70, 86, 0.25);
     backdrop-filter: blur(14px);
     background: rgba(11, 19, 38, 0.7);
-}
-
-.theme-light .topbar {
-    background: rgba(255, 255, 255, 0.72);
 }
 
 .topbar-inner,
@@ -70,6 +54,10 @@ main,
     border-radius: 10px;
     padding: 5px 8px;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
 }
 
 .brand-text {
@@ -79,29 +67,18 @@ main,
 }
 
 .menu-toggle {
-    display: none;
-    border: 1px solid rgba(67, 70, 86, 0.5);
-    background: var(--surface);
-    color: var(--text);
-    border-radius: 10px;
-    padding: 7px 12px;
+    display: inline-block;
+    border: none;
+    background: transparent;
+    color: var(--primary);
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
 }
 
 .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: var(--muted);
-    font-weight: 600;
-}
-
-.nav-link.active,
-.nav-link:hover {
-    color: var(--primary);
+    display: none;
 }
 
 .btn {
@@ -468,28 +445,6 @@ main,
 }
 
 @media (max-width: 900px) {
-    .menu-toggle {
-        display: inline-block;
-    }
-
-    .nav-links {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 74px;
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-        background: var(--surface);
-        border-bottom: 1px solid rgba(67, 70, 86, 0.35);
-        padding: 14px 4%;
-    }
-
-    .nav-links-open {
-        display: flex;
-    }
-
     .hero {
         grid-template-columns: 1fr;
         padding-top: 46px;
