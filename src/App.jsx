@@ -60,7 +60,7 @@ function App() {
 
           <div className="hero-image-wrap">
             <img
-              src="https://images.unsplash.com/photo-1573496529574-be85d6a60704?auto=format&fit=crop&w=900&q=80"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbrOsBlY59zRkZN5clESA-MCzUWDSYcuoefAckeKmMU1P2tdYO-5jqKoetMvCi8vZVSdNgZJPFbvXFokP7jF66zSotb-Kk03xMlJAkgY734npSXx_MGMYAshiRNHOmLC-7fZfjwZC3ql5o8QwvBLdLHmDscw3gbFYvdMzuTeAlvnUNMInm4JU56ADWXZtAjQCXJFNaoxE2ZaoY8rKhDxqpcnQJ9kqhhkHPQLd4m83NMQztQxfXqU7NVkIkF1WuzT9E8ob-yyfpb4-b"
               alt="Portrait"
               className="hero-image"
             />
@@ -87,25 +87,57 @@ function App() {
           <div className="project-grid">
             <Link to="/projects" className="project-card project-card-wide">
               <img
-                src="https://images.unsplash.com/photo-1551281044-8b1d3f8f6d2f?auto=format&fit=crop&w=1400&q=80"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvAbUi3QGspXGsg0apVmttPDL8wB-orSF36cMxbqjq4zqX7cwd0f9b8tPWBrXxuyUbSKvZWOnjwjWP-VSOD0CnIR6h1AV_qGDTVpbrB-bhQH1hfakHfSM5xpeIIDm4xNCUiTYDlxGg9IXRam7rPCRNVvB2ryndEsOhI0JmGIduhxpKsZOEZTv_-bc8iro0h9ph5ke7nwly9CHnSR7RWL6chtL1i6_1jhdylrtE8l_aWiEvcwtSXokg4M6Ei_NbVforT7F3JY43FxPY"
                 alt="Project dashboard"
               />
               <div className="project-content">
                 <h3>Architect Dash</h3>
-                <p>Analytics platform with real-time visualization and predictive modules.</p>
+                <p>Enterprise-grade analytics platform with real-time data streaming and predictive modeling.</p>
               </div>
             </Link>
 
             <Link to="/projects" className="project-card">
               <img
-                src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=900&q=80"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaZG07ZCCkCnvBV8gSnTY9IzTPOXylLIHUtAZfYEdlIEHlkMG05smIh1UVr-jGM2oQWfvEaHNNB2Y5WTLim8cmyxktI5nR-ZCuD-P1eUuA7KQplCz2pMbkp4XEVnS8H7UzU83TDoykF6n0VXKd42omo_LxU-ZOEi9FNZ3j4oC-Qyqyq9ph1vYUavcqV350c1M2usyO2TVeNBlk7EC5ee0yHzrRLOLj5C75zcX6IY5eGthGlxIr1UXVelT_iFot8mD-pellfB8s-AYO"
                 alt="Code on screen"
               />
               <div className="project-content">
                 <h3>SyncNode</h3>
-                <p>Distributed task engine for remote-first teams.</p>
+                <p>Distributed task management engine for remote-first engineering teams.</p>
               </div>
             </Link>
+          </div>
+        </section>
+
+        <section className="experience-section">
+          <div className="section-head">
+            <h2>Professional Path</h2>
+          </div>
+
+          <div className="experience-timeline">
+            <div className="timeline-item">
+              <div className="timeline-marker"></div>
+              <div className="timeline-content">
+                <time className="timeline-date">2021 — PRESENT</time>
+                <h3>Senior Developer</h3>
+                <p className="timeline-company">TechCorp Solutions</p>
+                <p className="timeline-description">
+                  Leading the architectural overhaul of the core cloud infrastructure. Managing a team of 8 developers and implementing CI/CD best practices.
+                </p>
+              </div>
+            </div>
+
+            <div className="timeline-item">
+              <div className="timeline-marker"></div>
+              <div className="timeline-content">
+                <time className="timeline-date">2018 — 2021</time>
+                <h3>Junior Developer</h3>
+                <p className="timeline-company">StartUp Inc.</p>
+                <p className="timeline-description">
+                  Developed responsive frontend components and optimized database queries for a high-traffic e-commerce platform.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
