@@ -1,0 +1,31 @@
+
+
+
+.main-text {
+    font-size: 96px;
+    font-weight: bold;
+    color: white;
+}
+
+.secondary-text {
+    background: linear-gradient(0.25turn, #00ff9d, #ebf8e1, #cf5cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn {
+    border: none;
+    height: 56px;
+    width: 191px;
+    background-color: #00ff9d;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.btn-container {
+    padding: 5%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
