@@ -39,6 +39,7 @@ main,
     align-items: center;
     justify-content: space-between;
     gap: 16px;
+    position: relative;
 }
 
 .brand {
@@ -75,6 +76,41 @@ main,
     cursor: pointer;
     font-size: 1.5rem;
     line-height: 1;
+}
+
+.top-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% - 6px);
+    min-width: 220px;
+    background: rgba(23, 31, 51, 0.96);
+    border: 1px solid rgba(67, 70, 86, 0.55);
+    border-radius: 14px;
+    padding: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+    z-index: 80;
+}
+
+.top-menu-open {
+    display: flex;
+}
+
+.top-menu-link {
+    text-decoration: none;
+    color: var(--text);
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.top-menu-link:hover,
+.top-menu-link.active {
+    background: rgba(184, 195, 255, 0.14);
+    color: var(--primary);
 }
 
 .nav-links {

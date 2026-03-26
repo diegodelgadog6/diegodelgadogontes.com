@@ -23,6 +23,15 @@ function App() {
           >
             <span className="menu-bars">☰</span>
           </button>
+
+          <div className={menuOpen ? 'top-menu top-menu-open' : 'top-menu'}>
+            <NavLink to="/" className="top-menu-link" onClick={() => setMenuOpen(false)}>Home</NavLink>
+            <NavLink to="/about" className="top-menu-link" onClick={() => setMenuOpen(false)}>Profile</NavLink>
+            <NavLink to="/projects" className="top-menu-link" onClick={() => setMenuOpen(false)}>Projects</NavLink>
+            <NavLink to="/experience" className="top-menu-link" onClick={() => setMenuOpen(false)}>Experience</NavLink>
+            <NavLink to="/resume" className="top-menu-link" onClick={() => setMenuOpen(false)}>Resume</NavLink>
+            <NavLink to="/contact" className="top-menu-link" onClick={() => setMenuOpen(false)}>Get in Touch</NavLink>
+          </div>
         </nav>
       </header>
 
