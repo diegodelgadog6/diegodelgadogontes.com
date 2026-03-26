@@ -10,7 +10,7 @@ function App() {
       <header className="topbar">
         <nav className="topbar-inner">
           <Link to="/" className="brand">
-            <span className="brand-icon">⌘</span>
+            <span className="brand-icon material-symbols-outlined">terminal</span>
             <span className="brand-text">The Kinetic Architect</span>
           </Link>
 
