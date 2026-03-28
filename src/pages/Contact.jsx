@@ -1,17 +1,75 @@
 
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 const Contact = () => {
+    const [form, setForm] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    })
+
+    const handleOnchange = (event) => {
+        const { name, value } = event.target
+        setForm((prev) => ({
+            ...prev,
+            [name]: value, 
+        }))
+
+        console.log(form)
+
+    }
+
+    const handleSendEmail = async (e) => {
+        e.preventDefault();
+        const data = await fetch('/api/server', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: form.name,
+                email: form.email,
+                message: form.message,
+            }),
+        });
+
+        const res = await data.json();
+        console.log(res);
+    };
+
     return (
-        <main className="simple-page">
-            <h1>Contact</h1>
-            <p>Esta pantalla se puede conectar luego a un formulario o WhatsApp.</p>
-            <div className="simple-page-actions">
-                <Link to="/">Volver al inicio</Link>
-                <Link to="/about">Ir a perfil</Link>
-            </div>
-        </main>
-    );
+    <div>
+      Contactme
+      <div>
+        <div style={{ display: 'flex', gap: '20px' }}>
+          <input
+            name="name"
+            type="text"
+            value={form.name}
+            onChange={handleOnchange}
+          />
+          <input
+            name="email"
+            type="email"
+            value={form.email}
+            onChange={handleOnchange}
+          />
+        </div>
+        <div style={{ paddingTop: '20px' }}>
+          <textarea
+            name="message"
+            type="message"
+            rows="10"
+            cols="50"
+            value={form.message}
+            onChange={handleOnchange}
+          />
+        </div>
+        <button style={{ width: '140px', height: '40px' }}>Contact Me</button>
+      </div>
+      <button onClick={handleSendEmail}>Go Back</button>
+    </div>
+  );
 };
 
 export default Contact;
