@@ -18,7 +18,7 @@ const handler = async (req, res) => {
 
     const result = await resend.emails.send({
       from: 'Acme <onboarding@resend.dev>',
-      to: 'diegdelgadog1@gmail.com',
+      to: 'diegodelgadog1@gmail.com',
       replyTo: email,
       subject: subject || `Mensaje de contacto de ${name || 'usuario'}`,
       html: `<strong>Nombre:</strong> ${name || '-'}<br />
