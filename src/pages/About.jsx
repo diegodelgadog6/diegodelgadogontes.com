@@ -4,16 +4,20 @@ import { Link } from 'react-router-dom'
 const About = () => {
     return (
         <main className="simple-page">
-            <h1>About Me</h1>
+            <h1>Sobre Mi</h1>
             <p>
-                Hi! I am Diego Delgado, a Computer Science and Technology student at Tecnologico de Monterrey.
+                Soy Diego Alejandro Delgado Gontes, estudiante de Ingenieria en Ciencias Computacionales y Tecnologias de la Informacion.
             </p>
             <p>
-                I focus on building practical solutions with clear logic, from software development in Python and C++ to data,
-                SQL, and front-end projects.
+                Actualmente estudio en Tecnologico de Monterrey, Campus Guadalajara, y me enfoco en crear soluciones practicas
+                en software, datos e IoT.
             </p>
             <p>
-                I also enjoy documenting processes, mentoring colleagues, and turning complex ideas into simple, useful systems.
+                Trabajo con Python, C++, MATLAB, SQL, HTML/CSS, Git y Linux. Me gusta documentar procesos y convertir ideas complejas
+                en implementaciones claras.
+            </p>
+            <p>
+                Sitio personal: <a href="https://diegodelgadogontes.com" target="_blank" rel="noreferrer">diegodelgadogontes.com</a>
             </p>
             <div className="simple-page-actions">
                 <Link to="/">Volver al inicio</Link>

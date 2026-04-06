@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 const Experience = () => {
   return (
     <main className="simple-page">
-      <h1>Experience</h1>
-      <p>2023 - Present: Computer Science and Technology student at Tecnologico de Monterrey.</p>
-      <p>Project focus: data structures, software requirements, SQL, and practical application building.</p>
-      <p>Technical practice: Python, C++, MATLAB, HTML, CSS, Git/GitHub, Linux, Arduino, and IoT.</p>
+      <h1>Experiencia</h1>
+      <p>2023 - Actualidad: Estudiante de Ingenieria en Ciencias Computacionales y Tecnologias de la Informacion.</p>
+      <p>Tecnologico de Monterrey, Campus Guadalajara (Zapopan, Jalisco, Mexico).</p>
+      <p>Enfoque: estructuras de datos, requerimientos de software, SQL, desarrollo web y proyectos de IoT en tiempo real.</p>
       <div className="simple-page-actions">
         <Link to="/">Volver al inicio</Link>
         <Link to="/resume">Ir a resume</Link>
