@@ -11,7 +11,7 @@ function App() {
         <nav className="topbar-inner">
           <Link to="/" className="brand">
             <span className="brand-icon material-symbols-outlined">terminal</span>
-            <span className="brand-text">The Kinetic Architect</span>
+            <span className="brand-text">Diego Delgado</span>
           </Link>
 
           <button
@@ -38,25 +38,25 @@ function App() {
       <main>
         <section className="hero">
           <div>
-            <p className="chip">Full Stack Developer</p>
+            <p className="chip">Computer Science and Technology Student</p>
             <h1 className="hero-title">
-              Alex <span>Dev</span>
+              Diego <span>Delgado</span>
             </h1>
             <p className="hero-subtitle">
-              Passionate about building scalable web applications and exploring new technologies.
+              Technology for me is clarity and purpose. I build practical solutions in software, data, and IoT systems.
             </p>
 
             <div className="hero-actions">
-              <Link to="/projects" className="icon-box" aria-label="Ir a proyectos">Code</Link>
-              <Link to="/about" className="icon-box" aria-label="Ir a perfil">Profile</Link>
-              <Link to="/resume" className="btn btn-primary">View Resume</Link>
+              <Link to="/projects" className="icon-box" aria-label="Ir a proyectos">View Projects</Link>
+              <Link to="/about" className="icon-box" aria-label="Ir a perfil">About Me</Link>
+              <Link to="/contact" className="btn btn-primary">Contact Me</Link>
             </div>
           </div>
 
           <div className="hero-image-wrap">
             <img
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbrOsBlY59zRkZN5clESA-MCzUWDSYcuoefAckeKmMU1P2tdYO-5jqKoetMvCi8vZVSdNgZJPFbvXFokP7jF66zSotb-Kk03xMlJAkgY734npSXx_MGMYAshiRNHOmLC-7fZfjwZC3ql5o8QwvBLdLHmDscw3gbFYvdMzuTeAlvnUNMInm4JU56ADWXZtAjQCXJFNaoxE2ZaoY8rKhDxqpcnQJ9kqhhkHPQLd4m83NMQztQxfXqU7NVkIkF1WuzT9E8ob-yyfpb4-b"
-              alt="Portrait"
+              src="https://diegodelgadog6.github.io/diegodelgadogontes.com/assets/avatar.png"
+              alt="Diego Delgado"
               className="hero-image"
             />
           </div>
@@ -64,11 +64,11 @@ function App() {
 
         <section className="skills-section">
           <div className="section-head">
-            <h2>Core Expertise</h2>
-            <p>Stack moderno para construir productos rápidos, accesibles y escalables.</p>
+            <h2>Skills and Technologies</h2>
+            <p>Programming, tools, and platforms I use to turn ideas into working products.</p>
           </div>
           <div className="skill-list">
-            {['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'AWS', 'Docker', 'GraphQL', 'Kubernetes'].map((skill) => (
+            {['Python', 'C++', 'MATLAB', 'HTML', 'CSS', 'SQL', 'Git', 'GitHub', 'VS Code', 'Linux', 'Arduino', 'IoT'].map((skill) => (
               <span className="skill-item" key={skill}>{skill}</span>
             ))}
           </div>
@@ -76,29 +76,29 @@ function App() {
 
         <section className="projects-section">
           <div className="section-head">
-            <h2>Selected Projects</h2>
+            <h2>Featured Projects</h2>
           </div>
 
           <div className="project-grid">
             <Link to="/projects" className="project-card project-card-wide">
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvAbUi3QGspXGsg0apVmttPDL8wB-orSF36cMxbqjq4zqX7cwd0f9b8tPWBrXxuyUbSKvZWOnjwjWP-VSOD0CnIR6h1AV_qGDTVpbrB-bhQH1hfakHfSM5xpeIIDm4xNCUiTYDlxGg9IXRam7rPCRNVvB2ryndEsOhI0JmGIduhxpKsZOEZTv_-bc8iro0h9ph5ke7nwly9CHnSR7RWL6chtL1i6_1jhdylrtE8l_aWiEvcwtSXokg4M6Ei_NbVforT7F3JY43FxPY"
-                alt="Project dashboard"
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80"
+                alt="IoT dashboard"
               />
               <div className="project-content">
-                <h3>Architect Dash</h3>
-                <p>Enterprise-grade analytics platform with real-time data streaming and predictive modeling.</p>
+                <h3>MQTT Real-Time Viewer</h3>
+                <p>Web app to visualize real-time MQTT messages from ESP32 and Raspberry Pi devices.</p>
               </div>
             </Link>
 
             <Link to="/projects" className="project-card">
               <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaZG07ZCCkCnvBV8gSnTY9IzTPOXylLIHUtAZfYEdlIEHlkMG05smIh1UVr-jGM2oQWfvEaHNNB2Y5WTLim8cmyxktI5nR-ZCuD-P1eUuA7KQplCz2pMbkp4XEVnS8H7UzU83TDoykF6n0VXKd42omo_LxU-ZOEi9FNZ3j4oC-Qyqyq9ph1vYUavcqV350c1M2usyO2TVeNBlk7EC5ee0yHzrRLOLj5C75zcX6IY5eGthGlxIr1UXVelT_iFot8mD-pellfB8s-AYO"
-                alt="Code on screen"
+                src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80"
+                alt="C++ project"
               />
               <div className="project-content">
-                <h3>SyncNode</h3>
-                <p>Distributed task management engine for remote-first engineering teams.</p>
+                <h3>The Naval Battle</h3>
+                <p>Turn-based C++ strategy game inspired by Battleship with a 10x10 board.</p>
               </div>
             </Link>
           </div>
@@ -106,18 +106,18 @@ function App() {
 
         <section className="experience-section">
           <div className="section-head">
-            <h2>Professional Path</h2>
+            <h2>Academic and Technical Path</h2>
           </div>
 
           <div className="experience-timeline">
             <div className="timeline-item">
               <div className="timeline-marker"></div>
               <div className="timeline-content">
-                <time className="timeline-date">2021 — PRESENT</time>
-                <h3>Senior Developer</h3>
-                <p className="timeline-company">TechCorp Solutions</p>
+                <time className="timeline-date">2023 — PRESENT</time>
+                <h3>Computer Science and Technology Student</h3>
+                <p className="timeline-company">Tecnologico de Monterrey</p>
                 <p className="timeline-description">
-                  Leading the architectural overhaul of the core cloud infrastructure. Managing a team of 8 developers and implementing CI/CD best practices.
+                  Building strong foundations in software engineering, data structures, algorithms, and practical development projects.
                 </p>
               </div>
             </div>
@@ -125,11 +125,11 @@ function App() {
             <div className="timeline-item">
               <div className="timeline-marker"></div>
               <div className="timeline-content">
-                <time className="timeline-date">2018 — 2021</time>
-                <h3>Junior Developer</h3>
-                <p className="timeline-company">StartUp Inc.</p>
+                <time className="timeline-date">Ongoing</time>
+                <h3>Hands-on Builder</h3>
+                <p className="timeline-company">Personal and Academic Projects</p>
                 <p className="timeline-description">
-                  Developed responsive frontend components and optimized database queries for a high-traffic e-commerce platform.
+                  Developing apps in Python and C++, experimenting with IoT, and creating useful solutions with a practical mindset.
                 </p>
               </div>
             </div>
@@ -137,8 +137,8 @@ function App() {
         </section>
 
         <section className="cta-section">
-          <h2>Ready to build the future?</h2>
-          <p>Disponible para proyectos freelance y oportunidades full-time.</p>
+          <h2>Lets build something useful</h2>
+          <p>Open to collaboration, learning opportunities, and software projects with real impact.</p>
           <div className="cta-actions">
             <Link to="/contact" className="btn btn-primary">Get in Touch</Link>
             <Link to="/projects" className="btn btn-outline">View Projects</Link>
@@ -148,14 +148,14 @@ function App() {
 
       <footer className="footer">
         <div>
-          <strong>The Kinetic Architect</strong>
-          <p>© 2024 Kinetic Architect. Built with technical precision.</p>
+          <strong>Diego Delgado</strong>
+          <p>© 2025 Diego Delgado. Built with React and Vite.</p>
         </div>
         <div className="footer-links">
-          <Link to="/projects">GITHUB</Link>
-          <Link to="/about">LINKEDIN</Link>
-          <Link to="/experience">TWITTER</Link>
-          <Link to="/contact">EMAIL</Link>
+          <a href="https://github.com/diegodelgadog6" target="_blank" rel="noreferrer">GITHUB</a>
+          <a href="https://www.linkedin.com/in/diegodelgadog6" target="_blank" rel="noreferrer">LINKEDIN</a>
+          <a href="mailto:diegodelgadog1@gmail.com">EMAIL</a>
+          <a href="https://x.com/diegodelgadog6" target="_blank" rel="noreferrer">X</a>
         </div>
       </footer>
     </div>
