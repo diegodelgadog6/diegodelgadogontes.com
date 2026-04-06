@@ -10,10 +10,16 @@ const handler = async (req, res) => {
     return res.status(405).json({ message: 'Wrong method' });
   }
 
+  if (!process.env.RESEND_API_KEY) {
+    return res.status(500).json({
+      message: 'Falta RESEND_API_KEY en variables de entorno',
+    });
+  }
+
   try {
     const { name, message, email, subject } = req.body;
 
-    const data = await resend.emails.send({
+    const result = await resend.emails.send({
       from: 'Acme <onboarding@resend.dev>',
       to: 'diegdelgadog1@gmail.com',
       replyTo: email,
@@ -23,10 +29,22 @@ const handler = async (req, res) => {
       <strong>Mensaje:</strong><br />${message || '-'}`,
     });
 
-    return res.status(200).json({ data });
+    if (result?.error) {
+      return res.status(502).json({
+        message: 'Resend devolvio un error',
+        error: result.error,
+      });
+    }
+
+    return res.status(200).json({ data: result?.data || result });
   } catch (error) {
     console.error(error);
-    return res.status(502).json({ error });
+    return res.status(502).json({
+      message: 'No se pudo enviar el correo',
+      error: {
+        message: error?.message || 'Error desconocido',
+      },
+    });
   }
 };
 

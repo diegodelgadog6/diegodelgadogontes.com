@@ -8,6 +8,8 @@ const Contact = () => {
         subject: '',
         message: '',
     })
+    const [status, setStatus] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const handleOnchange = (event) => {
         const { name, value } = event.target
@@ -19,22 +21,37 @@ const Contact = () => {
 
     const handleSendEmail = async (event) => {
         event.preventDefault()
+        setLoading(true)
+        setStatus('')
 
-        const response = await fetch('/api/server', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name: form.name,
-                email: form.email,
-                subject: form.subject,
-                message: form.message,
-            }),
-        })
+        try {
+            const response = await fetch('/api/server', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: form.name,
+                    email: form.email,
+                    subject: form.subject,
+                    message: form.message,
+                }),
+            })
 
-        const data = await response.json()
-        console.log(data)
+            const data = await response.json()
+
+            if (!response.ok) {
+                throw new Error(data?.error?.message || data?.message || 'No se pudo enviar el correo')
+            }
+
+            setStatus('Correo enviado correctamente')
+            setForm({ name: '', email: '', subject: '', message: '' })
+            console.log(data)
+        } catch (error) {
+            setStatus(error.message)
+        } finally {
+            setLoading(false)
+        }
     }
 
     return (
@@ -78,6 +95,8 @@ const Contact = () => {
                     />
                 </div>
                 <button type="submit">Enviar correo</button>
+                {status ? <p>{status}</p> : null}
+                {loading ? <p>Enviando...</p> : null}
             </form>
         </main>
     );
