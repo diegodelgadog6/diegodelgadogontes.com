@@ -55,7 +55,7 @@ function App() {
 
           <div className="hero-image-wrap">
             <img
-              src="https://diegodelgadog6.github.io/diegodelgadogontes.com/assets/avatar.png"
+              src="/assets/avatar.png"
               alt="Diego Delgado"
               className="hero-image"
             />
@@ -82,7 +82,7 @@ function App() {
           <div className="project-grid">
             <Link to="/projects" className="project-card project-card-wide">
               <img
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80"
+                src="/assets/hero.png"
                 alt="IoT dashboard"
               />
               <div className="project-content">
@@ -93,7 +93,7 @@ function App() {
 
             <Link to="/projects" className="project-card">
               <img
-                src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80"
+                src="/assets/banner.png"
                 alt="C++ project"
               />
               <div className="project-content">
