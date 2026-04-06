@@ -55,7 +55,8 @@ const Contact = () => {
 
     return (
         <main className="simple-page">
-            <h1>Contact</h1>
+            <h1>Contacto</h1>
+            <p>Tambien puedes escribirme directo por correo o redes.</p>
             <form onSubmit={handleSendEmail}>
                 <div>
                     <input
@@ -97,6 +98,14 @@ const Contact = () => {
                 {status ? <p>{status}</p> : null}
                 {loading ? <p>Enviando...</p> : null}
             </form>
+            <p>
+                <a href="mailto:diegodelgadog1@gmail.com">diegodelgadog1@gmail.com</a>
+            </p>
+            <p>
+                <a href="https://github.com/diegodelgadog6" target="_blank" rel="noreferrer">GitHub</a> |{' '}
+                <a href="https://www.linkedin.com/in/diegodelgadog6" target="_blank" rel="noreferrer">LinkedIn</a> |{' '}
+                <a href="https://instagram.com/diegodelgadog6" target="_blank" rel="noreferrer">Instagram</a>
+            </p>
         </main>
     );
 };

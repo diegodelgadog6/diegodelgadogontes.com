@@ -464,6 +464,23 @@ main,
     color: var(--muted);
 }
 
+.simple-page ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    display: grid;
+    gap: 8px;
+    text-align: left;
+    max-width: 860px;
+}
+
+.simple-page li {
+    color: var(--muted);
+}
+
+.simple-page a {
+    color: var(--primary);
+}
+
 .simple-page-actions {
     display: flex;
     gap: 12px;
