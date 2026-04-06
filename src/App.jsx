@@ -188,59 +188,6 @@ function App() {
                   <a href="https://github.com/diegodelgadog6/mqtt-viewer" target="_blank" rel="noreferrer">View Code →</a>
                 </div>
               </article>
-
-              <article className="project">
-                <h3>Chat Message Memory Management</h3>
-                <p>Implementation of an advanced memory management system for messaging applications. The program manages messages with dynamic pointers, marks messages as deleted, and executes a compaction function that frees memory and reorganizes the vector.</p>
-                <div className="project-tags">
-                  <span>C++</span>
-                  <span>Memory Management</span>
-                  <span>Data Structures</span>
-                  <span>Pointers</span>
-                </div>
-                <div className="project-links">
-                  <a href="https://github.com/diegodelgadog6/manejo-memoria-app-mensajeria-whatsapp" target="_blank" rel="noreferrer">View Code →</a>
-                </div>
-              </article>
-
-              <article className="project">
-                <h3>The Naval Battle</h3>
-                <p>A turn-based strategy game developed in C++ that simulates the classic Battleship game. Two players place and attack ships on a 10x10 board until one of them runs out of ships.</p>
-                <div className="project-tags">
-                  <span>C++</span>
-                  <span>Game Development</span>
-                  <span>Logic</span>
-                </div>
-                <div className="project-links">
-                  <a href="https://github.com/diegodelgadog6/The-Naval-battle" target="_blank" rel="noreferrer">View Code →</a>
-                </div>
-              </article>
-
-              <article className="project">
-                <h3>Car Sales & Inventory Tracker</h3>
-                <p>A Python-based application to manage car sales and inventory. This system allows users to register vehicle sales, track inventory, and generate various reports like top-selling models and top-performing salespeople.</p>
-                <div className="project-tags">
-                  <span>Python</span>
-                  <span>Data Analysis</span>
-                  <span>File Handling</span>
-                </div>
-                <div className="project-links">
-                  <a href="https://github.com/diegodelgadog6/Car-Sales-and-Inventory-Tracker" target="_blank" rel="noreferrer">View Code →</a>
-                </div>
-              </article>
-
-              <article className="project">
-                <h3>Linked List Implementation</h3>
-                <p>Educational implementation of a simple linked list in C++ from scratch using classes. Features insertion (beginning/end/position), deletion by value, search, and display with minimal testing and documentation.</p>
-                <div className="project-tags">
-                  <span>C++</span>
-                  <span>Data Structures</span>
-                  <span>Pointers</span>
-                </div>
-                <div className="project-links">
-                  <a href="https://github.com/diegodelgadog6/lista-ligada-cpp-desde-cero" target="_blank" rel="noreferrer">View Code →</a>
-                </div>
-              </article>
             </div>
           </div>
         </section>
