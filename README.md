@@ -1,16 +1,57 @@
-# React + Vite
+# Portafolio Personal - React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un portafolio web personal desarrollado con React y Vite.
+Su objetivo es presentar informacion profesional, proyectos, experiencia y formas de contacto en una interfaz moderna, rapida y responsiva.
 
-Currently, two official plugins are available:
+## Sitio desplegado
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Puedes ver la version en produccion aqui:
 
-## React Compiler
+- https://diegodelgadogontes.com
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Caracteristicas principales
 
-## Expanding the ESLint configuration
+- Navegacion entre secciones del portafolio.
+- Pagina de inicio con seccion destacada (Hero).
+- Secciones de About, Experience, Projects, Resume y Contact.
+- Estilos personalizados con CSS por componentes.
+- Despliegue en Vercel.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tecnologias usadas
+
+- React
+- Vite
+- JavaScript (JSX)
+- CSS
+
+## Estructura general
+
+- src/components: componentes reutilizables como Navbar y Hero.
+- src/pages: paginas principales del sitio (Home, About, Experience, Projects, Resume, Contact).
+- api: backend simple para endpoints (si aplica en el despliegue).
+
+## Ejecutar el proyecto en local
+
+1. Instala dependencias:
+
+```bash
+npm install
+```
+
+2. Inicia el servidor de desarrollo:
+
+```bash
+npm run dev
+```
+
+3. Abre en el navegador la URL que muestra la terminal (normalmente http://localhost:5173).
+
+## Build de produccion
+
+```bash
+npm run build
+```
+
+## Autor
+
+Diego Delgado
