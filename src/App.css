@@ -452,40 +452,6 @@ main {
   gap: 1.3rem;
 }
 
-/* Chip */
-.chip {
-  display: inline-flex;
-  width: fit-content;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 16px;
-  border-radius: var(--radius-full);
-  background: rgba(247, 201, 120, 0.1);
-  border: 1px solid rgba(247, 201, 120, 0.3);
-  color: var(--primary);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  position: relative;
-  overflow: hidden;
-}
-
-.chip-pulse {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--primary);
-  box-shadow: 0 0 12px var(--primary);
-  animation: chipPulse 2s ease-in-out infinite;
-}
-
-@keyframes chipPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.4); }
-}
-
 /* Kicker */
 .hero-kicker {
   display: flex;
@@ -1230,27 +1196,6 @@ main {
 }
 
 /* ═══════════ FOOTER ═══════════ */
-.footer {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 2.5rem 0;
-  color: var(--muted);
-  font-size: 0.88rem;
-}
-
-.footer-line {
-  width: min(200px, 40%);
-  height: 1px;
-  margin: 0 auto 1.5rem;
-  background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
-}
-
-.footer strong {
-  color: var(--primary);
-  font-weight: 600;
-}
-
 /* ═══════════ RESPONSIVE ═══════════ */
 @media (max-width: 960px) {
   .hero {

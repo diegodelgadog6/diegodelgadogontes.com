@@ -208,6 +208,30 @@ function App() {
   const activeSection = useActiveSection()
   const { scrollYProgress } = useScroll()
 
+  const featuredProjects = [
+    {
+      icon: '⚡',
+      title: 'AmpelIntelligence',
+      description: 'IoT platform that captures and visualizes real-time device data to monitor signals and behavior in a clear web dashboard.',
+      tags: ['Python', 'Flask', 'MQTT', 'IoT', 'WebSockets'],
+      codeUrl: 'https://github.com/diegodelgadog6/AmpelIntelligence',
+    },
+    {
+      icon: '🎮',
+      title: 'console-retro-game',
+      description: 'Retro-style console game implemented with classic game-loop logic, focused on responsive controls and clean terminal rendering.',
+      tags: ['Python', 'Game Loop', 'CLI', 'OOP'],
+      codeUrl: 'https://github.com/diegodelgadog6/console-retro-game',
+    },
+    {
+      icon: '💬',
+      title: 'chatify-app',
+      description: 'Chat application project centered on real-time messaging flow, user interaction, and a clean communication interface.',
+      tags: ['Web App', 'Chat', 'UI', 'Realtime'],
+      codeUrl: 'https://github.com/diegodelgadog6/chatify-app',
+    },
+  ]
+
   const heroY = useTransform(scrollYProgress, [0, 0.3], [0, -120])
   const heroOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0])
 
@@ -318,16 +342,6 @@ function App() {
           style={shouldReduceMotion ? {} : { y: heroY, opacity: heroOpacity }}
         >
           <MotionDiv className="hero-copy" variants={revealVariants}>
-            <motion.p
-              className="chip"
-              initial={{ opacity: 0, x: -40, scale: 0.8 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ duration: 0.9, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <span className="chip-pulse" />
-              Digital artifact / portfolio film still
-            </motion.p>
-
             <motion.div
               className="hero-kicker"
               initial="hidden"
@@ -566,53 +580,51 @@ function App() {
               </h2>
             </MotionDiv>
             <div className="projects-list">
-              <TiltCard className="project">
-                <MotionDiv
-                  variants={{
-                    hidden: { opacity: 0, y: 60, scale: 0.95 },
-                    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
-                  }}
-                >
-                  <div className="project-header">
-                    <span className="project-icon">⚡</span>
-                    <h3>MQTT Real-Time Viewer</h3>
-                  </div>
-                  <p>Real-time web application for visualizing MQTT messages from IoT devices. Monitors data streams from Raspberry Pi and ESP32 microcontrollers, displaying live sensor readings and device communications through an intuitive web interface.</p>
-                  <div className="project-tags">
-                    {['Python', 'Flask', 'MQTT', 'IoT', 'WebSockets'].map((tag, i) => (
-                      <motion.span
-                        key={i}
-                        custom={i}
-                        variants={tagVariants}
-                        whileHover={{ scale: 1.15, y: -3 }}
+              {featuredProjects.map((project, pi) => (
+                <TiltCard className="project" key={project.title}>
+                  <MotionDiv
+                    variants={{
+                      hidden: { opacity: 0, y: 60, scale: 0.95 },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        transition: { duration: 0.9, delay: pi * 0.08, ease: [0.16, 1, 0.3, 1] },
+                      },
+                    }}
+                  >
+                    <div className="project-header">
+                      <span className="project-icon">{project.icon}</span>
+                      <h3>{project.title}</h3>
+                    </div>
+                    <p>{project.description}</p>
+                    <div className="project-tags">
+                      {project.tags.map((tag, i) => (
+                        <motion.span
+                          key={`${project.title}-${tag}`}
+                          custom={i}
+                          variants={tagVariants}
+                          whileHover={{ scale: 1.15, y: -3 }}
+                        >
+                          {tag}
+                        </motion.span>
+                      ))}
+                    </div>
+                    <div className="project-links">
+                      <motion.a
+                        href={project.codeUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        whileHover={{ x: 6 }}
+                        transition={{ duration: 0.25 }}
                       >
-                        {tag}
-                      </motion.span>
-                    ))}
-                  </div>
-                  <div className="project-links">
-                    <motion.a
-                      href="https://ampelintelligence.up.railway.app/"
-                      target="_blank"
-                      rel="noreferrer"
-                      whileHover={{ x: 6 }}
-                      transition={{ duration: 0.25 }}
-                    >
-                      <span className="link-arrow">→</span> View Viewer
-                    </motion.a>
-                    <motion.a
-                      href="https://github.com/diegodelgadog6/mqtt-viewer"
-                      target="_blank"
-                      rel="noreferrer"
-                      whileHover={{ x: 6 }}
-                      transition={{ duration: 0.25 }}
-                    >
-                      <span className="link-arrow">→</span> View Code
-                    </motion.a>
-                  </div>
-                  <div className="project-glow" />
-                </MotionDiv>
-              </TiltCard>
+                        <span className="link-arrow">→</span> View Code
+                      </motion.a>
+                    </div>
+                    <div className="project-glow" />
+                  </MotionDiv>
+                </TiltCard>
+              ))}
             </div>
           </div>
         </MotionSection>
@@ -748,17 +760,6 @@ function App() {
           </div>
         </MotionSection>
       </main>
-
-      <motion.footer
-        className="footer"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-      >
-        <div className="footer-line" />
-        <p>Designed & built by <strong>Diego Delgado</strong></p>
-      </motion.footer>
     </div>
   )
 }
