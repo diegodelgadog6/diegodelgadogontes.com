@@ -222,6 +222,7 @@ function App() {
       description: 'Retro-style console game implemented with classic game-loop logic, focused on responsive controls and clean terminal rendering.',
       tags: ['Python', 'Game Loop', 'CLI', 'OOP'],
       codeUrl: 'https://github.com/diegodelgadog6/console-retro-game',
+      demoUrl: 'https://console-retro-game.vercel.app/',
     },
     {
       icon: '💬',
@@ -229,6 +230,7 @@ function App() {
       description: 'Chat application project centered on real-time messaging flow, user interaction, and a clean communication interface.',
       tags: ['Web App', 'Chat', 'UI', 'Realtime'],
       codeUrl: 'https://github.com/diegodelgadog6/chatify-app',
+      demoUrl: 'https://chatify-app-z8m3.vercel.app/',
     },
   ]
 
@@ -611,6 +613,17 @@ function App() {
                       ))}
                     </div>
                     <div className="project-links">
+                      {project.demoUrl ? (
+                        <motion.a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          whileHover={{ x: 6 }}
+                          transition={{ duration: 0.25 }}
+                        >
+                          <span className="link-arrow">→</span> View Demo
+                        </motion.a>
+                      ) : null}
                       <motion.a
                         href={project.codeUrl}
                         target="_blank"
