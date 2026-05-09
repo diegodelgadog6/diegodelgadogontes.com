@@ -771,7 +771,7 @@ main {
   height: 46%;
   background-image:
     linear-gradient(180deg, rgba(4, 8, 14, 0.14), rgba(4, 8, 14, 0.76)),
-    url('/assets/banner.png');
+    url('/assets/Nordic-mountain-wallpaper.jpg');
   filter: saturate(1.1) contrast(1.05);
 }
 

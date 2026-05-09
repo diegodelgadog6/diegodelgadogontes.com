@@ -747,6 +747,7 @@ function App() {
                     { href: 'https://tiktok.com/@diegodelgadog6', img: '/assets/tiktok.png', alt: 'TikTok', label: 'TikTok' },
                     { href: 'https://steamcommunity.com/id/diegodelgadog6', img: '/assets/steam.png', alt: 'Steam', label: 'Steam' },
                     { href: 'https://www.reddit.com/user/diegodelgadog6', img: '/assets/reddit.png', alt: 'Reddit', label: 'Reddit' },
+                    { href: 'https://twitch.tv/diegodelgadog6', img: '/assets/twitch.png', alt: 'Twitch', label: 'Twitch' },
                   ].map((link, i) => (
                     <motion.a
                       key={i}
