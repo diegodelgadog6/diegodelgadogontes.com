@@ -7,7 +7,7 @@ const Resume = () => {
       <p>Puedes revisar mi CV y perfiles publicos en los siguientes enlaces.</p>
       <p>
         <a
-          href="https://drive.google.com/file/d/14KJrOJlYpKMyzHbg9HglPNPas9sGh_0Q/view?usp=drive_link"
+          href="https://drive.google.com/file/d/1HSvwhHJmPFRuwHEFcZRuggvD-FpfnsqX/view?usp=sharing"
           target="_blank"
           rel="noreferrer"
         >
