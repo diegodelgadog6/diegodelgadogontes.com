@@ -737,7 +737,7 @@ function App() {
                 <h3 id="contact-links-title" className="contact-panel-title">My networks</h3>
                 <div className="contact-links">
                   {[
-                    { href: 'https://drive.google.com/file/d/1HSvwhHJmPFRuwHEFcZRuggvD-FpfnsqX/view?usp=sharing', img: '/assets/cv.png', alt: 'Resume', label: 'My Resume' },
+                    { href: 'https://drive.google.com/file/d/1qA8NUq_-1kFo678xz40YtNd9NPKTmbyP/view?usp=sharing', img: '/assets/cv.png', alt: 'Resume', label: 'My Resume' },
                     { href: 'mailto:diegodelgadog1@gmail.com', img: '/assets/mail.png', alt: 'Email', label: 'Send email' },
                     { href: 'https://github.com/diegodelgadog6', img: '/assets/github.png', alt: 'GitHub', label: 'GitHub' },
                     { href: 'https://www.linkedin.com/in/diegodelgadog6', img: '/assets/linkedin.png', alt: 'LinkedIn', label: 'LinkedIn' },
