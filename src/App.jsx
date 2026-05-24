@@ -477,11 +477,11 @@ function App() {
             </MotionDiv>
             <div className="about-content">
               {[
-                "Hi! I'm Diego, and I'm currently studying Computer Science and Technology at Tecnológico de Monterrey.",
-                "For me, technology isn't just about writing code, but about clarity, efficiency, and building things with purpose. If something is unnecessarily complicated, I simplify it. If it doesn't work well, I rethink it.",
-                "I work in various areas of technology: from programming in Python, C++, and MATLAB to circuit design and prototyping with Arduino. I've explored object-oriented programming, data structures, and software requirements, always with a focus on practical implementation. My background in mathematics education and statistical analysis strengthens my systems thinking and critical reasoning, especially when working with databases, SQL, and AI tools.",
-                "I also enjoy front-end web development, using HTML5, CSS, and Visual Studio Code to create clean, functional interfaces. I'm familiar with Git and GitHub for version control and collaboration, and I work comfortably in Linux environments like Ubuntu.",
-                "But that's just a small part of who I am. At my core, I'm passionate about documenting processes, mentoring colleagues, and synthesizing information. My goal is to turn ideas into realities in a clear, logical, and practical way.",
+                "Hi, I'm Diego — a Computer Science & Technology student at Tecnológico de Monterrey (Campus Guadalajara) with a passion for turning ideas into real, working software.",
+                "On the web side, I enjoy the full stack: from designing interfaces with React and Tailwind CSS to wiring up backends with Node.js and Flask, adding real-time features with Socket.IO, or connecting everything to a MySQL database. Most of my recent projects live on GitHub and are deployed on Vercel.",
+                "I also have a thing for hardware. One of my favorite projects, AmpelIntelligence, combines an ESP32, a Raspberry Pi, MQTT, and Flask to monitor urban traffic and air quality in real time — the kind of work where physical and digital meet.",
+                "When I'm not writing code, I might be designing a game level in Godot or tinkering with a new idea that probably sounds weird until it works.",
+                "Open to internships, collaborations, and interesting problems. Let's build something.",
               ].map((text, i) => (
                 <MotionDiv
                   key={i}
