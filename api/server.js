@@ -16,8 +16,11 @@ const handler = async (req, res) => {
   try {
     const { name, message, email, subject } = req.body;
 
+    // Nombre visible del remitente: el nombre de quien escribe (saneado), sin "Acme".
+    const senderName = (name || '').replace(/[<>"\r\n]/g, '').trim() || 'Contacto Web';
+
     const result = await resend.emails.send({
-      from: 'Acme <onboarding@resend.dev>',
+      from: `${senderName} <onboarding@resend.dev>`,
       to: 'diegodelgadog1@gmail.com',
       replyTo: email,
       subject: subject || `Mensaje de contacto de ${name || 'usuario'}`,

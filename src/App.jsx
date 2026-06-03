@@ -1,40 +1,28 @@
 import './App.css'
 import { motion, useReducedMotion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion'
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useRef, useCallback } from 'react'
+import { LuUniversity } from 'react-icons/lu'
+import { FaComputer, FaLocationDot, FaLink, FaGithub, FaLinkedin, FaXTwitter, FaInstagram, FaYoutube, FaSteam, FaRegFileLines } from 'react-icons/fa6'
+import { RiGitRepositoryFill } from 'react-icons/ri'
+import { TiSocialAtCircular } from 'react-icons/ti'
+import { IoIosMail } from 'react-icons/io'
 
 /* ───────── animation variants ───────── */
 const revealVariants = {
-  hidden: { opacity: 0, y: 80, scale: 0.96, filter: 'blur(18px)' },
+  hidden: { opacity: 0, y: 60, scale: 0.97, filter: 'blur(14px)' },
   visible: {
     opacity: 1, y: 0, scale: 1, filter: 'blur(0px)',
-    transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 1, ease: [0.16, 1, 0.3, 1] },
   },
 }
 
 const staggerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.15, delayChildren: 0.1 } },
-}
-
-const letterVariants = {
-  hidden: { opacity: 0, y: 60, rotateX: -90 },
-  visible: i => ({
-    opacity: 1, y: 0, rotateX: 0,
-    transition: { duration: 0.8, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] },
-  }),
-}
-
-const tagVariants = {
-  hidden: { opacity: 0, scale: 0.7, y: 20 },
-  visible: i => ({
-    opacity: 1, scale: 1, y: 0,
-    transition: { duration: 0.5, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] },
-  }),
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
 }
 
 const MotionSection = motion.section
 const MotionDiv = motion.div
-const MotionH1 = motion.h1
 
 /* ───────── Floating Particles ───────── */
 function Particles() {
@@ -127,8 +115,8 @@ function TiltCard({ children, className }) {
   const ref = useRef(null)
   const x = useMotionValue(0)
   const y = useMotionValue(0)
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [8, -8]), { stiffness: 200, damping: 20 })
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-8, 8]), { stiffness: 200, damping: 20 })
+  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [6, -6]), { stiffness: 200, damping: 20 })
+  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-6, 6]), { stiffness: 200, damping: 20 })
 
   const handleMouse = useCallback((e) => {
     const rect = ref.current?.getBoundingClientRect()
@@ -152,24 +140,6 @@ function TiltCard({ children, className }) {
   )
 }
 
-/* ───────── Animated Title Letters ───────── */
-function AnimatedText({ text, className }) {
-  return (
-    <motion.span className={className}>
-      {text.split('').map((char, i) => (
-        <motion.span
-          key={i}
-          custom={i}
-          variants={letterVariants}
-          style={{ display: 'inline-block', whiteSpace: char === ' ' ? 'pre' : 'normal' }}
-        >
-          {char}
-        </motion.span>
-      ))}
-    </motion.span>
-  )
-}
-
 /* ───────── Glitch Text ───────── */
 function GlitchText({ text }) {
   return (
@@ -179,70 +149,133 @@ function GlitchText({ text }) {
   )
 }
 
-/* ───────── Active Section Hook ───────── */
-function useActiveSection() {
-  const [active, setActive] = useState('')
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) setActive(entry.target.id)
-        })
-      },
-      { threshold: 0.3 }
-    )
-    const sections = document.querySelectorAll('section[id]')
-    sections.forEach(s => observer.observe(s))
-    return () => sections.forEach(s => observer.unobserve(s))
-  }, [])
-  return active
+/* ───────── ASCII art (GitHub README) ───────── */
+const asciiArt = [
+  '                                 .-##*=:..',
+  '                                 :*@%@@#*##+:..',
+  '                                .=%+::.:*%@@%**#*-..',
+  '                                .*#-@@@@@*-..=#@@@#+*%*:.',
+  '                               .=%+=@@@@@@@@@@%=:.:*%@@@#+##=:',
+  '                               .+*-@@@@@@@@@@@@@@@@%+:.:=#@@@%*+#*-.',
+  '                              .=%==@@@@@@@@@@@@@@@@@@@@%#*-::-*%@%%#++*=:.',
+  '                              .+#-%@@@@@@@@@@@@@@@@@@@@@@@@@@#*=::-+%@@%#**:',
+  '                             .+%+=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%*=::%+%*+',
+  '                             .+%:%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@==#*#%:',
+  '                            .+%+-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*:#+%#+.',
+  '                            .+%:%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-=#*#%:',
+  '                            =%+-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*:#+%#+.',
+  '                           .+%:%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=+#*#%:',
+  '                           +@*-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*-#+%%=.',
+  '                          .+@.*%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@=+*##%:',
+  '                        ..@%%@%-..=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*-#*#%=.',
+  '                    .#%::#*=%-#-@@@+..=@@@@@@@@@@@@@@@@@@@@@@@@@@=+*###:',
+  '               .+#-:++%*=@@@@=%+%*=*#@%*:.:#@@@@@@@@@@@@@@@@@@@@*-#*#%=.',
+  '          .=#=:===#@+%%+@%-%=@%=%*+##%*+*@%#:.:=@@@@@@@@@@@@@@@%-+*##*:',
+  '      -*+:===%%%**%@%%=%%%@=@%@@#*@%%++#*#+**%%#=.:-%@@@@@@@@@@*-##*%=.',
+  ' :*+=%##@@@@@%#*%@*#**@%=%=@@+%*@@%#*#@**###+#**+@@#+.:-+@@@@@%-=*#%*:',
+  '#=*@@@@@@@@@@@@@@#%#*%##%*%%#%**%#%%#%#%#+#%%#=*#**+*#@#+-.-+%*-*##%-',
+  '%*@###%@@@@@@@@@%%#%%%+##@%#%+@@#*#%@##*#@#**#@@**+##+#+##@#+-.+*#%+:',
+  '.+**%%%#%%@@%*#@@@@@@@@@##+%#@%*#%%##%@@%*##@#**#%@**%**##++*%@%%##=',
+  '   .-**#%%%#%*==*%@@@@@@@@@@#*+%%@##%%#*%%%###%#%*##@#%*#***+=:--**:',
+  '       :+**%%@###+==#%@@@@@@@@%#+*%*%@***#@%###@@@%##@%+#=-.:=%%#+:',
+  '          .-**#%@%*%#=-+#@%%*%@@@@@@**#@@#+#%@%@+#@#*==::=#@@%#+:',
+  '              :+*+%@@##%#%@@@@@@@@@@@@@%*#@@#**@@#+-:-#@@%##*-.',
+  '                 .=#**@@%+%@@@@@@@@@@@@@@@@%+%++::*@@@%*#=.',
+  '                     :*%+%@@#+@@@@@@@@@@@@@@*-*@@@@*%*:',
+  '                        .-%#+@@%**@@@@@@@**%@@@###-.',
+  '                           .:+%**@@#*#@@@@@##%+:.',
+  '                              ..-*#*%@@%#%*-.',
+  '                                  .:+##=:.',
+].join('\n')
+
+/* ───────── data: README "neofetch" lines ───────── */
+const readmeLines = [
+  { key: 'OS', value: 'Bazzite, Windows 11' },
+  { key: 'Uptime', value: '20 years old' },
+  { key: 'Host', value: 'Tecnológico de Monterrey #GDL' },
+  { key: 'Kernel', value: 'CS & Technology Student #ITC' },
+  { key: 'IDE', value: 'Cursor, VSCode' },
+  { spacer: true },
+  { key: 'Languages.Code', value: 'Python, C++, JS' },
+  { key: 'Frameworks', value: 'React, Flask, Tailwind CSS' },
+  { key: 'Tools', value: 'Socket.IO, MySQL, Git' },
+  { key: 'Languages.Human', value: 'Spanish, English' },
+]
+
+/* ───────── data: pinned repos (exactly as on GitHub) ───────── */
+const langColors = {
+  JavaScript: '#f1e05a',
+  Python: '#3572A5',
+  'C#': '#178600',
 }
+
+const pinnedRepos = [
+  {
+    name: 'paninixchange',
+    lang: 'JavaScript',
+    stars: 1,
+    description: 'La red social del coleccionista del Mundial 2026 — conecta coleccionistas cercanos para intercambiar cromos Panini. Interfaz en React 19, Vite y Tailwind CSS.',
+    url: 'https://github.com/diegodelgadog6/paninixchange',
+  },
+  {
+    name: 'kueski-extension',
+    lang: 'JavaScript',
+    stars: 1,
+    description: 'Kueski Smart Widget: extensión de navegador (Manifest V3) que actúa como asistente financiero — cupones, saldo y más mientras navegas.',
+    url: 'https://github.com/diegodelgadog6/kueski-extension',
+  },
+  {
+    name: 'Arcane-Kitchen',
+    lang: 'C#',
+    stars: 1,
+    description: 'Videojuego desarrollado en Unity, donde la cocina se mezcla con un toque de magia. Mi incursión en el game dev con C#.',
+    url: 'https://github.com/diegodelgadog6/Arcane-Kitchen',
+  },
+  {
+    name: 'Server-chatify',
+    lang: 'JavaScript',
+    stars: 1,
+    description: 'Backend de mensajería en tiempo real para Chatify, construido con Express, Socket.IO y PostgreSQL.',
+    url: 'https://github.com/diegodelgadog6/Server-chatify',
+  },
+  {
+    name: 'AmpelIntelligence',
+    lang: 'Python',
+    stars: 1,
+    description: 'Monitor IoT de tráfico urbano y calidad del aire en tiempo real. ESP32 + Raspberry Pi + MQTT + Flask + MySQL, con visor web en vivo.',
+    url: 'https://github.com/diegodelgadog6/AmpelIntelligence',
+    demoUrl: 'https://ampel-intelligence.vercel.app',
+  },
+  {
+    name: 'Server-Postify',
+    lang: 'Python',
+    stars: 1,
+    description: 'Backend en Python de Postify, una red social de publicaciones. API y lógica de servidor.',
+    url: 'https://github.com/diegodelgadog6/Server-Postify',
+  },
+]
+
+/* ───────── data: social links ───────── */
+const socialLinks = [
+  { href: 'https://drive.google.com/file/d/1qA8NUq_-1kFo678xz40YtNd9NPKTmbyP/view?usp=sharing', Icon: FaRegFileLines, label: 'Resume' },
+  { href: 'https://github.com/diegodelgadog6', Icon: FaGithub, label: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/diegodelgadog6', Icon: FaLinkedin, label: 'LinkedIn' },
+  { href: 'mailto:diegodelgadog1@gmail.com', Icon: IoIosMail, label: 'Email' },
+  { href: 'https://x.com/diegodelgadog6', Icon: FaXTwitter, label: 'X' },
+  { href: 'https://instagram.com/diegodelgadog6', Icon: FaInstagram, label: 'Instagram' },
+  { href: 'https://youtube.com/@diegodelgadog6', Icon: FaYoutube, label: 'YouTube' },
+  { href: 'https://steamcommunity.com/id/diegodelgadog6', Icon: FaSteam, label: 'Steam' },
+]
 
 /* ═══════════════════════ MAIN APP ═══════════════════════ */
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false)
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' })
   const [status, setStatus] = useState('')
   const [loading, setLoading] = useState(false)
   const shouldReduceMotion = useReducedMotion()
-  const activeSection = useActiveSection()
-  const { scrollYProgress } = useScroll()
-
-  const featuredProjects = [
-    {
-      icon: '⚡',
-      title: 'AmpelIntelligence',
-      description: 'IoT platform that captures and visualizes real-time device data to monitor signals and behavior in a clear web dashboard.',
-      tags: ['Python', 'Flask', 'MQTT', 'IoT', 'WebSockets'],
-      codeUrl: 'https://github.com/diegodelgadog6/AmpelIntelligence',
-    },
-    {
-      icon: '🎮',
-      title: 'console-retro-game',
-      description: 'Retro-style console game implemented with classic game-loop logic, focused on responsive controls and clean terminal rendering.',
-      tags: ['Python', 'Game Loop', 'CLI', 'OOP'],
-      codeUrl: 'https://github.com/diegodelgadog6/console-retro-game',
-      demoUrl: 'https://console-retro-game.vercel.app/',
-    },
-    {
-      icon: '💬',
-      title: 'chatify-app',
-      description: 'Chat application project centered on real-time messaging flow, user interaction, and a clean communication interface.',
-      tags: ['Web App', 'Chat', 'UI', 'Realtime'],
-      codeUrl: 'https://github.com/diegodelgadog6/chatify-app',
-      demoUrl: 'https://chatify-app-z8m3.vercel.app/',
-    },
-  ]
-
-  const heroY = useTransform(scrollYProgress, [0, 0.3], [0, -120])
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0])
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setMenuOpen(false)
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
   }
 
   const handleFormChange = (e) => {
@@ -281,496 +314,227 @@ function App() {
       <AuroraBackground />
       <ScrollProgress />
 
-      {/* ─── NAVBAR ─── */}
-      <motion.header
-        className="topbar"
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-      >
-        <nav className="topbar-inner">
-          <motion.a
-            onClick={() => scrollToSection('top')}
-            className="brand"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="brand-icon material-symbols-outlined">terminal</span>
-            <span className="brand-text">Diego Delgado</span>
-          </motion.a>
-
-          <button
-            className="menu-toggle"
-            onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label="Menú"
-            type="button"
-            title="Menú"
-          >
-            <motion.span
-              className="menu-bars"
-              animate={{ rotate: menuOpen ? 90 : 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              {menuOpen ? '✕' : '☰'}
-            </motion.span>
-          </button>
-
-          <div className={menuOpen ? 'top-menu top-menu-open' : 'top-menu'}>
-            {['about', 'skills', 'projects', 'contact'].map((section, i) => (
-              <motion.a
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`top-menu-link ${activeSection === section ? 'active' : ''}`}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + i * 0.08 }}
-                whileHover={{ scale: 1.08 }}
-              >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
-              </motion.a>
-            ))}
-          </div>
-        </nav>
-      </motion.header>
-
       <main>
-        {/* ═══════════ HERO ═══════════ */}
+        {/* ═══════════ PROFILE + README ═══════════ */}
         <MotionSection
           id="top"
-          className="hero hero-scene"
+          className="profile"
           initial={shouldReduceMotion ? false : 'hidden'}
           animate="visible"
           variants={staggerVariants}
-          style={shouldReduceMotion ? {} : { y: heroY, opacity: heroOpacity }}
         >
-          <MotionDiv className="hero-copy" variants={revealVariants}>
-            <motion.div
-              className="hero-kicker"
-              initial="hidden"
-              animate="visible"
-              variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
-            >
-              {['Computer Science and Technology Student', 'Tecnológico de Monterrey · GDL'].map((text, i) => (
-                <motion.span
-                  key={i}
-                  variants={{
-                    hidden: { opacity: 0, y: 20, filter: 'blur(8px)' },
-                    visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
-                  }}
-                >
-                  {text}
-                </motion.span>
-              ))}
-            </motion.div>
-
-            <MotionH1
-              className="hero-title"
-              initial="hidden"
-              animate="visible"
-              variants={{ visible: { transition: { staggerChildren: 0.05, delayChildren: 0.3 } } }}
-            >
-              <AnimatedText text="Diego" className="hero-title-line" />
-              <br />
-              <AnimatedText text="Delgado" className="hero-title-line" />
-            </MotionH1>
-
-            <motion.p
-              className="hero-subtitle"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            >
-              Hi, I'm Diego Delgado. I design code, interfaces, and technical ideas as if they were scenes: precise, atmospheric, and impossible to ignore.
-            </motion.p>
-
-            <motion.p
-              className="hero-tagline"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.1 }}
-            >
-              <GlitchText text='run("think for yourself");' />
-            </motion.p>
-
-            <motion.div
-              className="hero-actions"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.3 }}
-            >
-              <MagneticButton onClick={() => scrollToSection('projects')} className="btn btn-primary">
+          {/* Left: identity card (GitHub sidebar) */}
+          <MotionDiv className="id-card" variants={revealVariants}>
+            <div className="id-avatar">
+              <img src="/assets/avatar.png" alt="Diego Delgado" />
+            </div>
+            <h1 className="id-name">Diego Alejandro Delgado Gontes</h1>
+            <p className="id-handle">diegodelgadog6 · he/him</p>
+            <p className="id-bio">
+              <FaComputer className="id-bio-icon" /> Computer Science and Technology student at ITESM.
+            </p>
+            <ul className="id-meta">
+              <li><LuUniversity className="id-meta-icon" /> Tecnológico de Monterrey · Campus Guadalajara</li>
+              <li><FaLocationDot className="id-meta-icon" /> Zapopan, Jal, Mexico</li>
+              <li>
+                <FaLink className="id-meta-icon" />
+                <a href="https://diegodelgadogontes.com" target="_blank" rel="noreferrer">diegodelgadogontes.com</a>
+              </li>
+            </ul>
+            <div className="id-actions">
+              <MagneticButton onClick={() => scrollToSection('pinned')} className="btn btn-primary">
                 <span className="btn-shine" />
-                Enter the work
+                View projects
               </MagneticButton>
-              <MagneticButton onClick={() => scrollToSection('contact')} className="icon-box">
-                Start a conversation
+              <MagneticButton onClick={() => scrollToSection('connect')} className="icon-box">
+                Get in touch
               </MagneticButton>
-            </motion.div>
-
-            <motion.div
-              className="hero-metrics"
-              aria-label="Core strengths"
-              initial="hidden"
-              animate="visible"
-              variants={{ visible: { transition: { staggerChildren: 0.15, delayChildren: 1.5 } } }}
-            >
-              {[
-                { num: '01', label: 'logic', title: 'Python, C++, MATLAB', desc: 'Reasoning, automation, and systems thinking.' },
-                { num: '02', label: 'interface', title: 'HTML, CSS, SQL', desc: 'Interfaces shaped with clarity and restraint.' },
-                { num: '03', label: 'craft', title: 'Git, Linux, Arduino', desc: 'Practical tools for real prototypes and delivery.' },
-              ].map((m, i) => (
-                <TiltCard key={i} className="metric-card">
-                  <motion.div
-                    variants={{
-                      hidden: { opacity: 0, y: 40, scale: 0.9 },
-                      visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
-                    }}
-                  >
-                    <span className="stat-label">{m.num} / {m.label}</span>
-                    <strong>{m.title}</strong>
-                    <span>{m.desc}</span>
-                    <div className="metric-glow" />
-                  </motion.div>
-                </TiltCard>
-              ))}
-            </motion.div>
+            </div>
           </MotionDiv>
 
-          <MotionDiv className="hero-visual" variants={revealVariants}>
-            <TiltCard className="hero-poster">
-              <div className="hero-poster-glow" />
-              <div className="hero-poster-image hero-poster-image-banner" aria-hidden="true" />
-              <div className="hero-poster-image hero-poster-image-portrait" aria-hidden="true" />
-              <div className="hero-poster-panel">
-                <span className="hero-poster-label">Selected sequence</span>
-                <h2>Built like a scene, not a template.</h2>
-                <p>The page leans into contrast, depth, and composition so the work feels curated instead of assembled.</p>
+          {/* Right: README terminal card (neofetch style) */}
+          <MotionDiv className="readme-wrap" variants={revealVariants}>
+            <TiltCard className="readme-card">
+              <div className="readme-bar">
+                <span className="readme-dot readme-dot-r" />
+                <span className="readme-dot readme-dot-y" />
+                <span className="readme-dot readme-dot-g" />
+                <span className="readme-bar-title">diegodelgadog6 / README.md</span>
               </div>
-              <div className="hero-film-strip" aria-hidden="true">
-                {[0, 1, 2, 3].map(i => (
-                  <motion.span
-                    key={i}
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{ duration: 0.6, delay: 1.8 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                  />
-                ))}
+              <div className="readme-body">
+                <pre className="readme-ascii" aria-hidden="true">{asciiArt}</pre>
+                <div className="readme-info">
+                <div className="readme-user">diegodelgadog6</div>
+                <div className="readme-rule" />
+                {readmeLines.map((line, i) =>
+                  line.spacer ? (
+                    <div key={i} className="readme-spacer" />
+                  ) : (
+                    <div key={i} className="readme-line">
+                      <span className="readme-key">{line.key}</span>
+                      <span className="readme-sep">: </span>
+                      <span className="readme-val">{line.value}</span>
+                    </div>
+                  )
+                )}
+                <div className="readme-spacer" />
+                <div className="readme-run">
+                  <GlitchText text='run("think for yourself");' />
+                </div>
+                <div className="readme-spacer" />
+                <div className="readme-line">
+                  <span className="readme-key">My Web Site</span>
+                  <span className="readme-sep">: </span>
+                  <a className="readme-val readme-link" href="https://diegodelgadogontes.com" target="_blank" rel="noreferrer">
+                    diegodelgadogontes.com
+                  </a>
+                </div>
+                </div>
               </div>
             </TiltCard>
           </MotionDiv>
         </MotionSection>
 
-        {/* ═══════════ ABOUT ═══════════ */}
+        {/* ═══════════ PINNED REPOS ═══════════ */}
         <MotionSection
-          id="about"
-          className="section-about"
+          id="pinned"
+          className="section-pinned"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.15 }}
           variants={staggerVariants}
         >
           <div className="section-container screen-frame">
             <MotionDiv variants={revealVariants}>
-              <h2 className="section-title">
-                <span className="section-number">01.</span> About Me
-              </h2>
+              <h2 className="section-title"><RiGitRepositoryFill className="section-pin" /> Projects</h2>
             </MotionDiv>
-            <div className="about-content">
-              {[
-                "Hi, I'm Diego — a Computer Science & Technology student at Tecnológico de Monterrey (Campus Guadalajara) with a passion for turning ideas into real, working software.",
-                "On the web side, I enjoy the full stack: from designing interfaces with React and Tailwind CSS to wiring up backends with Node.js and Flask, adding real-time features with Socket.IO, or connecting everything to a MySQL database. Most of my recent projects live on GitHub and are deployed on Vercel.",
-                "I also have a thing for hardware. One of my favorite projects, AmpelIntelligence, combines an ESP32, a Raspberry Pi, MQTT, and Flask to monitor urban traffic and air quality in real time — the kind of work where physical and digital meet.",
-                "When I'm not writing code, I might be designing a game level in Godot or tinkering with a new idea that probably sounds weird until it works.",
-                "Open to internships, collaborations, and interesting problems. Let's build something.",
-              ].map((text, i) => (
-                <MotionDiv
-                  key={i}
-                  variants={{
-                    hidden: { opacity: 0, x: -30, filter: 'blur(8px)' },
-                    visible: {
-                      opacity: 1, x: 0, filter: 'blur(0px)',
-                      transition: { duration: 0.8, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] },
-                    },
-                  }}
-                >
-                  <p>{text}</p>
-                </MotionDiv>
-              ))}
-              <MotionDiv
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1, transition: { duration: 0.6, delay: 0.6 } },
-                }}
-              >
-                <p><strong>Nice to meet you!</strong></p>
-              </MotionDiv>
-            </div>
-          </div>
-        </MotionSection>
-
-        {/* ═══════════ SKILLS ═══════════ */}
-        <MotionSection
-          id="skills"
-          className="section-skills"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={staggerVariants}
-        >
-          <div className="section-container screen-frame">
-            <MotionDiv variants={revealVariants}>
-              <h2 className="section-title">
-                <span className="section-number">02.</span> Skills & Technologies
-              </h2>
-            </MotionDiv>
-            <div className="skills-grid">
-              {[
-                { icon: '💻', title: 'Programming Languages', items: ['Python', 'C++', 'MATLAB'] },
-                { icon: '🌐', title: 'Web Technologies', items: ['HTML5', 'CSS', 'SQL'] },
-                { icon: '🛠️', title: 'Development Tools', items: ['VS Code', 'Git & GitHub', 'Linux'] },
-                { icon: '🌍', title: 'Languages', items: ['Spanish (Native)', 'English (Intermediate)'] },
-              ].map((cat, ci) => (
-                <TiltCard key={ci} className="skill-category">
+            <div className="repos-grid">
+              {pinnedRepos.map((repo, ri) => (
+                <TiltCard className="repo-card" key={repo.name}>
                   <MotionDiv
+                    className="repo-inner"
                     variants={{
-                      hidden: { opacity: 0, y: 50, rotateX: -15 },
+                      hidden: { opacity: 0, y: 40, scale: 0.96 },
                       visible: {
-                        opacity: 1, y: 0, rotateX: 0,
-                        transition: { duration: 0.7, delay: ci * 0.12, ease: [0.16, 1, 0.3, 1] },
+                        opacity: 1, y: 0, scale: 1,
+                        transition: { duration: 0.7, delay: ri * 0.07, ease: [0.16, 1, 0.3, 1] },
                       },
                     }}
                   >
-                    <h3>{cat.icon} {cat.title}</h3>
-                    <div className="skill-items">
-                      {cat.items.map((item, si) => (
-                        <motion.span
-                          key={si}
-                          className="skill-item"
-                          custom={ci * 3 + si}
-                          variants={tagVariants}
-                          whileHover={{
-                            scale: 1.1,
-                            boxShadow: '0 0 20px rgba(123,220,255,0.3)',
-                            borderColor: 'rgba(123,220,255,0.5)',
-                          }}
-                        >
-                          {item}
-                        </motion.span>
-                      ))}
+                    <div className="repo-top">
+                      <a className="repo-name" href={repo.url} target="_blank" rel="noreferrer">{repo.name}</a>
+                      <span className="repo-badge">Public</span>
                     </div>
-                    <div className="card-border-glow" />
+                    <p className="repo-desc">{repo.description}</p>
+                    <div className="repo-meta">
+                      <span className="repo-lang">
+                        <span className="lang-dot" style={{ background: langColors[repo.lang] }} />
+                        {repo.lang}
+                      </span>
+                      <span className="repo-stars">★ {repo.stars}</span>
+                      {repo.demoUrl && (
+                        <a className="repo-demo" href={repo.demoUrl} target="_blank" rel="noreferrer">
+                          ↗ Live demo
+                        </a>
+                      )}
+                    </div>
+                    <div className="repo-glow" />
                   </MotionDiv>
                 </TiltCard>
               ))}
             </div>
+            <p className="repos-footer">
+              <a href="https://github.com/diegodelgadog6?tab=repositories" target="_blank" rel="noreferrer">
+                See all repositories on GitHub →
+              </a>
+            </p>
           </div>
         </MotionSection>
 
-        {/* ═══════════ PROJECTS ═══════════ */}
+        {/* ═══════════ CONNECT / SOCIAL ═══════════ */}
         <MotionSection
-          id="projects"
-          className="section-projects"
+          id="connect"
+          className="section-connect"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.15 }}
           variants={staggerVariants}
         >
           <div className="section-container screen-frame">
             <MotionDiv variants={revealVariants}>
-              <h2 className="section-title">
-                <span className="section-number">03.</span> Featured Projects
-              </h2>
+              <h2 className="section-title"><TiSocialAtCircular className="section-pin" /> Find me online</h2>
             </MotionDiv>
-            <div className="projects-list">
-              {featuredProjects.map((project, pi) => (
-                <TiltCard className="project" key={project.title}>
-                  <MotionDiv
-                    variants={{
-                      hidden: { opacity: 0, y: 60, scale: 0.95 },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        scale: 1,
-                        transition: { duration: 0.9, delay: pi * 0.08, ease: [0.16, 1, 0.3, 1] },
-                      },
-                    }}
-                  >
-                    <div className="project-header">
-                      <span className="project-icon">{project.icon}</span>
-                      <h3>{project.title}</h3>
-                    </div>
-                    <p>{project.description}</p>
-                    <div className="project-tags">
-                      {project.tags.map((tag, i) => (
-                        <motion.span
-                          key={`${project.title}-${tag}`}
-                          custom={i}
-                          variants={tagVariants}
-                          whileHover={{ scale: 1.15, y: -3 }}
-                        >
-                          {tag}
-                        </motion.span>
-                      ))}
-                    </div>
-                    <div className="project-links">
-                      {project.demoUrl ? (
-                        <motion.a
-                          href={project.demoUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          whileHover={{ x: 6 }}
-                          transition={{ duration: 0.25 }}
-                        >
-                          <span className="link-arrow">→</span> View Demo
-                        </motion.a>
-                      ) : null}
-                      <motion.a
-                        href={project.codeUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        whileHover={{ x: 6 }}
-                        transition={{ duration: 0.25 }}
-                      >
-                        <span className="link-arrow">→</span> View Code
-                      </motion.a>
-                    </div>
-                    <div className="project-glow" />
-                  </MotionDiv>
-                </TiltCard>
-              ))}
-            </div>
-          </div>
-        </MotionSection>
 
-        {/* ═══════════ CONTACT ═══════════ */}
-        <MotionSection
-          id="contact"
-          className="section-contact"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          variants={staggerVariants}
-        >
-          <div className="section-container screen-frame">
-            <MotionDiv variants={revealVariants}>
-              <h2 className="section-title">
-                <span className="section-number">04.</span> Let's Connect
-              </h2>
-            </MotionDiv>
-            <div className="contact-layout">
-              <MotionDiv
-                className="contact-panel contact-panel-form"
-                variants={{
-                  hidden: { opacity: 0, x: -50 },
-                  visible: { opacity: 1, x: 0, transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] } },
-                }}
-                aria-labelledby="contact-form-title"
-              >
-                <h3 id="contact-form-title" className="contact-panel-title">Send a message</h3>
-                <form onSubmit={handleSendEmail} className="contact-form">
-                  {[
-                    { type: 'text', name: 'name', placeholder: 'Your name' },
-                    { type: 'email', name: 'email', placeholder: 'Your email' },
-                    { type: 'text', name: 'subject', placeholder: 'Subject' },
-                  ].map((field, i) => (
-                    <motion.div
-                      key={field.name}
-                      className="form-group"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1, duration: 0.5 }}
-                    >
-                      <input
-                        type={field.type}
-                        name={field.name}
-                        placeholder={field.placeholder}
-                        value={formData[field.name]}
-                        onChange={handleFormChange}
-                        required
-                      />
-                    </motion.div>
-                  ))}
-                  <motion.div
-                    className="form-group"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+            <div className="socials-grid">
+              {socialLinks.map((link, i) => {
+                const { Icon } = link
+                return (
+                  <motion.a
+                    key={i}
+                    href={link.href}
+                    target={link.href.startsWith('mailto') ? undefined : '_blank'}
+                    rel={link.href.startsWith('mailto') ? undefined : 'noreferrer'}
+                    className="social-link"
+                    initial={{ opacity: 0, y: 16, scale: 0.9 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.3, duration: 0.5 }}
+                    transition={{ delay: i * 0.05, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                    whileHover={{ scale: 1.06, y: -4 }}
                   >
-                    <textarea
-                      name="message"
-                      placeholder="Your message"
-                      rows="5"
-                      value={formData.message}
+                    <Icon className="social-icon" />
+                    <span>{link.label}</span>
+                  </motion.a>
+                )
+              })}
+            </div>
+
+            <MotionDiv className="contact-panel" variants={revealVariants}>
+              <h3 className="contact-panel-title"><IoIosMail className="contact-panel-icon" /> Or send me a message</h3>
+              <form onSubmit={handleSendEmail} className="contact-form">
+                {[
+                  { type: 'text', name: 'name', placeholder: 'Your name' },
+                  { type: 'email', name: 'email', placeholder: 'Your email' },
+                  { type: 'text', name: 'subject', placeholder: 'Subject' },
+                ].map((field) => (
+                  <div key={field.name} className="form-group">
+                    <input
+                      type={field.type}
+                      name={field.name}
+                      placeholder={field.placeholder}
+                      value={formData[field.name]}
                       onChange={handleFormChange}
                       required
                     />
-                  </motion.div>
-                  <MagneticButton className="btn btn-primary" type="submit">
-                    <span className="btn-shine" />
-                    {loading ? 'Sending...' : 'Send Message'}
-                  </MagneticButton>
-                  <AnimatePresence>
-                    {status && (
-                      <motion.p
-                        className={status.includes('✓') ? 'form-success' : 'form-error'}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                      >
-                        {status}
-                      </motion.p>
-                    )}
-                  </AnimatePresence>
-                </form>
-              </MotionDiv>
-
-              <MotionDiv
-                className="contact-panel contact-panel-links"
-                variants={{
-                  hidden: { opacity: 0, x: 50 },
-                  visible: { opacity: 1, x: 0, transition: { duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] } },
-                }}
-                aria-labelledby="contact-links-title"
-              >
-                <h3 id="contact-links-title" className="contact-panel-title">My networks</h3>
-                <div className="contact-links">
-                  {[
-                    { href: 'https://drive.google.com/file/d/1qA8NUq_-1kFo678xz40YtNd9NPKTmbyP/view?usp=sharing', img: '/assets/cv.png', alt: 'Resume', label: 'My Resume' },
-                    { href: 'mailto:diegodelgadog1@gmail.com', img: '/assets/mail.png', alt: 'Email', label: 'Send email' },
-                    { href: 'https://github.com/diegodelgadog6', img: '/assets/github.png', alt: 'GitHub', label: 'GitHub' },
-                    { href: 'https://www.linkedin.com/in/diegodelgadog6', img: '/assets/linkedin.png', alt: 'LinkedIn', label: 'LinkedIn' },
-                    { href: 'https://x.com/diegodelgadog6', img: '/assets/x.png', alt: 'X', label: 'X' },
-                    { href: 'https://instagram.com/diegodelgadog6', img: '/assets/instagram.png', alt: 'Instagram', label: 'Instagram' },
-                    { href: 'https://youtube.com/@diegodelgadog6', img: '/assets/youtube.png', alt: 'YouTube', label: 'YouTube' },
-                    { href: 'https://tiktok.com/@diegodelgadog6', img: '/assets/tiktok.png', alt: 'TikTok', label: 'TikTok' },
-                    { href: 'https://steamcommunity.com/id/diegodelgadog6', img: '/assets/steam.png', alt: 'Steam', label: 'Steam' },
-                    { href: 'https://www.reddit.com/user/diegodelgadog6', img: '/assets/reddit.png', alt: 'Reddit', label: 'Reddit' },
-                    { href: 'https://twitch.tv/diegodelgadog6', img: '/assets/twitch.png', alt: 'Twitch', label: 'Twitch' },
-                  ].map((link, i) => (
-                    <motion.a
-                      key={i}
-                      href={link.href}
-                      target={link.href.startsWith('mailto') ? undefined : '_blank'}
-                      rel={link.href.startsWith('mailto') ? undefined : 'noreferrer'}
-                      className="contact-link"
-                      initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                      whileHover={{
-                        scale: 1.06,
-                        y: -4,
-                      }}
-                    >
-                      <img src={link.img} alt={link.alt} />
-                      {link.label}
-                    </motion.a>
-                  ))}
+                  </div>
+                ))}
+                <div className="form-group">
+                  <textarea
+                    name="message"
+                    placeholder="Your message"
+                    rows="5"
+                    value={formData.message}
+                    onChange={handleFormChange}
+                    required
+                  />
                 </div>
-              </MotionDiv>
-            </div>
+                <MagneticButton className="btn btn-primary" type="submit">
+                  <span className="btn-shine" />
+                  {loading ? 'Sending...' : 'Send Message'}
+                </MagneticButton>
+                <AnimatePresence>
+                  {status && (
+                    <motion.p
+                      className={status.includes('✓') ? 'form-success' : 'form-error'}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                    >
+                      {status}
+                    </motion.p>
+                  )}
+                </AnimatePresence>
+              </form>
+            </MotionDiv>
           </div>
         </MotionSection>
       </main>
