@@ -216,6 +216,7 @@ const pinnedRepos = [
     stars: 1,
     description: 'La red social del coleccionista del Mundial 2026 — conecta coleccionistas cercanos para intercambiar cromos Panini. Interfaz en React 19, Vite y Tailwind CSS.',
     url: 'https://github.com/diegodelgadog6/paninixchange',
+    demoUrl: 'https://paninixchange.vercel.app/',
   },
   {
     name: 'kueski-extension',
@@ -225,18 +226,20 @@ const pinnedRepos = [
     url: 'https://github.com/diegodelgadog6/kueski-extension',
   },
   {
-    name: 'Arcane-Kitchen',
-    lang: 'C#',
-    stars: 1,
-    description: 'Videojuego desarrollado en Unity, donde la cocina se mezcla con un toque de magia. Mi incursión en el game dev con C#.',
-    url: 'https://github.com/diegodelgadog6/Arcane-Kitchen',
-  },
-  {
     name: 'Server-chatify',
     lang: 'JavaScript',
     stars: 1,
     description: 'Backend de mensajería en tiempo real para Chatify, construido con Express, Socket.IO y PostgreSQL.',
     url: 'https://github.com/diegodelgadog6/Server-chatify',
+    demoUrl: 'https://chatify-app-black.vercel.app/',
+  },
+  {
+    name: 'Server-Postify',
+    lang: 'Python',
+    stars: 1,
+    description: 'Backend en Python de Postify, una red social de publicaciones. API y lógica de servidor.',
+    url: 'https://github.com/diegodelgadog6/Server-Postify',
+    demoUrl: 'https://ui-postify.vercel.app/profile/e4f72569-8304-4167-882c-c06d6b34da91',
   },
   {
     name: 'AmpelIntelligence',
@@ -247,11 +250,12 @@ const pinnedRepos = [
     demoUrl: 'https://ampel-intelligence.vercel.app',
   },
   {
-    name: 'Server-Postify',
-    lang: 'Python',
+    name: 'console-retro-game',
+    lang: 'JavaScript',
     stars: 1,
-    description: 'Backend en Python de Postify, una red social de publicaciones. API y lógica de servidor.',
-    url: 'https://github.com/diegodelgadog6/Server-Postify',
+    description: 'Interfaz retro estilo consola para explorar Pokémon y jugar una batalla 1v1. Consume la PokeAPI, con modo combate completo (HP, ataques y pantalla de ganador). React, Vite y Tailwind CSS.',
+    url: 'https://github.com/diegodelgadog6/console-retro-game',
+    demoUrl: 'https://console-retro-game.vercel.app',
   },
 ]
 
