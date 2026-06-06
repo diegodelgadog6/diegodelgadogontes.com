@@ -247,7 +247,7 @@ const pinnedRepos = [
     stars: 1,
     description: 'Monitor IoT de tráfico urbano y calidad del aire en tiempo real. ESP32 + Raspberry Pi + MQTT + Flask + MySQL, con visor web en vivo.',
     url: 'https://github.com/diegodelgadog6/AmpelIntelligence',
-    demoUrl: 'https://ampel-intelligence.vercel.app',
+    demoUrl: 'https://ampelintelligence-production.up.railway.app',
   },
   {
     name: 'console-retro-game',
