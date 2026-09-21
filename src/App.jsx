@@ -261,7 +261,7 @@ const pinnedRepos = [
 
 /* ───────── data: social links ───────── */
 const socialLinks = [
-  { href: 'https://drive.google.com/file/d/1qA8NUq_-1kFo678xz40YtNd9NPKTmbyP/view?usp=sharing', Icon: FaRegFileLines, label: 'Resume' },
+  { href: 'https://drive.google.com/file/d/1oGO1i1RS6KcUBaLXBLDX3s0JRxcOZVnQ/view?usp=sharing', Icon: FaRegFileLines, label: 'Resume' },
   { href: 'https://github.com/diegodelgadog6', Icon: FaGithub, label: 'GitHub' },
   { href: 'https://www.linkedin.com/in/diegodelgadog6', Icon: FaLinkedin, label: 'LinkedIn' },
   { href: 'mailto:diegodelgadog1@gmail.com', Icon: IoIosMail, label: 'Email' },
