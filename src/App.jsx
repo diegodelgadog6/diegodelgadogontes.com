@@ -2,7 +2,7 @@ import './App.css'
 import { motion, useReducedMotion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion'
 import { useState, useRef, useCallback } from 'react'
 import { LuUniversity } from 'react-icons/lu'
-import { FaComputer, FaLocationDot, FaLink, FaGithub, FaLinkedin, FaXTwitter, FaInstagram, FaYoutube, FaSteam, FaRegFileLines, FaCodeFork } from 'react-icons/fa6'
+import { FaComputer, FaLocationDot, FaLink, FaGithub, FaLinkedin, FaXTwitter, FaInstagram, FaYoutube, FaSteam, FaRegFileLines, FaCodeFork, FaArrowDown } from 'react-icons/fa6'
 import { RiGitRepositoryFill } from 'react-icons/ri'
 import { TiSocialAtCircular } from 'react-icons/ti'
 import { IoIosMail } from 'react-icons/io'
@@ -352,15 +352,16 @@ function App() {
               <li><FaLocationDot className="id-meta-icon" /> Zapopan, Jal, Mexico</li>
               <li>
                 <FaLink className="id-meta-icon" />
-                <a href="https://profile-dev-taupe.vercel.app" target="_blank" rel="noreferrer">profile-dev-taupe.vercel.app</a>
+                <a href="https://diegodelgadogontes.com" target="_blank" rel="noreferrer">diegodelgadogontes.com</a>
               </li>
             </ul>
             <div className="id-actions">
-              <MagneticButton onClick={() => scrollToSection('pinned')} className="btn btn-primary">
-                <span className="btn-shine" />
+              <MagneticButton onClick={() => scrollToSection('pinned')} className="cta cta-primary">
                 View projects
+                <FaArrowDown className="cta-arrow" />
               </MagneticButton>
-              <MagneticButton onClick={() => scrollToSection('connect')} className="icon-box">
+              <MagneticButton onClick={() => scrollToSection('connect')} className="cta cta-ghost">
+                <span className="cta-status" aria-hidden="true" />
                 Get in touch
               </MagneticButton>
             </div>
@@ -399,8 +400,8 @@ function App() {
                 <div className="readme-line">
                   <span className="readme-key">My Web Site</span>
                   <span className="readme-sep">: </span>
-                  <a className="readme-val readme-link" href="https://profile-dev-taupe.vercel.app" target="_blank" rel="noreferrer">
-                    profile-dev-taupe.vercel.app
+                  <a className="readme-val readme-link" href="https://diegodelgadogontes.com" target="_blank" rel="noreferrer">
+                    diegodelgadogontes.com
                   </a>
                 </div>
                 </div>
