@@ -265,13 +265,6 @@ main {
 }
 .id-meta a:hover { color: var(--primary); }
 
-.id-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 1.2rem;
-}
-
 /* ─── README terminal card (neofetch) ─── */
 .readme-wrap { perspective: 1400px; }
 
@@ -449,89 +442,6 @@ main {
 @keyframes btnShineSweep {
   0% { transform: translateX(-120%); }
   30%, 100% { transform: translateX(120%); }
-}
-
-/* ─── Hero CTAs (pill buttons) ─── */
-@property --cta-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: true;
-}
-
-.cta {
-  position: relative;
-  isolation: isolate;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  height: 48px;
-  padding: 0 1.4rem;
-  border-radius: var(--radius-full);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.92rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  color: var(--text);
-  cursor: pointer;
-  transition: box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease;
-}
-
-/* Primary: dark pill with a rotating gradient border and soft glow */
-.cta-primary {
-  --cta-ring: conic-gradient(from var(--cta-angle), var(--primary), var(--primary-strong), var(--accent-secondary), var(--accent), var(--primary));
-  border: 1.5px solid transparent;
-  background:
-    linear-gradient(var(--bg-soft), var(--bg-soft)) padding-box,
-    var(--cta-ring) border-box;
-  animation: ctaSpin 5s linear infinite;
-}
-.cta-primary::before {
-  content: '';
-  position: absolute;
-  inset: -3px;
-  z-index: -1;
-  border-radius: inherit;
-  background: var(--cta-ring);
-  filter: blur(14px);
-  opacity: 0.3;
-  transition: opacity 0.4s ease;
-}
-.cta-primary:hover::before { opacity: 0.65; }
-
-.cta-arrow {
-  font-size: 0.8rem;
-  color: var(--primary);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.cta-primary:hover .cta-arrow { transform: translateY(3px); }
-
-@keyframes ctaSpin { to { --cta-angle: 360deg; } }
-
-/* Secondary: frosted glass pill with an "available" status dot */
-.cta-ghost {
-  border: 1px solid var(--line-strong);
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.cta-ghost:hover {
-  border-color: rgba(52, 211, 153, 0.45);
-  background: rgba(52, 211, 153, 0.06);
-  box-shadow: 0 0 24px rgba(52, 211, 153, 0.12);
-}
-
-.cta-status {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #34d399;
-  animation: ctaPulse 2s ease-out infinite;
-}
-@keyframes ctaPulse {
-  0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55); }
-  70% { box-shadow: 0 0 0 8px rgba(52, 211, 153, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
 }
 
 /* ═══════════ SECTION CONTAINERS ═══════════ */
@@ -886,8 +796,6 @@ main {
 
 @media (max-width: 480px) {
   .profile { width: 94%; }
-  .id-actions { flex-direction: column; width: 100%; }
-  .id-actions .cta { width: 100%; }
   .readme-body { padding: 1.2rem; }
   .readme-line { white-space: normal; }
 }

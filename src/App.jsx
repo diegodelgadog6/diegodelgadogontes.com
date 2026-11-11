@@ -2,7 +2,7 @@ import './App.css'
 import { motion, useReducedMotion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion'
 import { useState, useRef, useCallback } from 'react'
 import { LuUniversity } from 'react-icons/lu'
-import { FaComputer, FaLocationDot, FaLink, FaGithub, FaLinkedin, FaXTwitter, FaInstagram, FaYoutube, FaSteam, FaRegFileLines, FaCodeFork, FaArrowDown } from 'react-icons/fa6'
+import { FaComputer, FaLocationDot, FaLink, FaGithub, FaLinkedin, FaXTwitter, FaInstagram, FaYoutube, FaSteam, FaRegFileLines, FaCodeFork } from 'react-icons/fa6'
 import { RiGitRepositoryFill } from 'react-icons/ri'
 import { TiSocialAtCircular } from 'react-icons/ti'
 import { IoIosMail } from 'react-icons/io'
@@ -288,10 +288,6 @@ function App() {
   const [loading, setLoading] = useState(false)
   const shouldReduceMotion = useReducedMotion()
 
-  const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   const handleFormChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
@@ -355,16 +351,6 @@ function App() {
                 <a href="https://diegodelgadogontes.com" target="_blank" rel="noreferrer">diegodelgadogontes.com</a>
               </li>
             </ul>
-            <div className="id-actions">
-              <MagneticButton onClick={() => scrollToSection('pinned')} className="cta cta-primary">
-                View projects
-                <FaArrowDown className="cta-arrow" />
-              </MagneticButton>
-              <MagneticButton onClick={() => scrollToSection('connect')} className="cta cta-ghost">
-                <span className="cta-status" aria-hidden="true" />
-                Get in touch
-              </MagneticButton>
-            </div>
           </MotionDiv>
 
           {/* Right: README terminal card (neofetch style) */}
