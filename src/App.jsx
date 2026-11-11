@@ -2,7 +2,7 @@ import './App.css'
 import { motion, useReducedMotion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion'
 import { useState, useRef, useCallback } from 'react'
 import { LuUniversity } from 'react-icons/lu'
-import { FaComputer, FaLocationDot, FaLink, FaGithub, FaLinkedin, FaXTwitter, FaInstagram, FaYoutube, FaSteam, FaRegFileLines } from 'react-icons/fa6'
+import { FaComputer, FaLocationDot, FaLink, FaGithub, FaLinkedin, FaXTwitter, FaInstagram, FaYoutube, FaSteam, FaRegFileLines, FaCodeFork } from 'react-icons/fa6'
 import { RiGitRepositoryFill } from 'react-icons/ri'
 import { TiSocialAtCircular } from 'react-icons/ti'
 import { IoIosMail } from 'react-icons/io'
@@ -209,11 +209,20 @@ const langColors = {
   'C#': '#178600',
 }
 
+// Same repos and order as the pins on github.com/diegodelgadog6.
+// `repos` lists both GitHub repos when the UI and the backend live apart.
 const pinnedRepos = [
+  {
+    name: 'Karlocc86/challenge-multiagent-modelation',
+    lang: 'Python',
+    stars: 2,
+    forks: 1,
+    description: 'Simulación de eventos discretos de una casilla electoral mexicana con Python/Mesa, Flask y Unity.',
+    url: 'https://github.com/Karlocc86/challenge-multiagent-modelation',
+  },
   {
     name: 'paninixchange',
     lang: 'JavaScript',
-    stars: 1,
     description: 'La red social del coleccionista del Mundial 2026 — conecta coleccionistas cercanos para intercambiar cromos Panini. Interfaz en React 19, Vite y Tailwind CSS.',
     url: 'https://github.com/diegodelgadog6/paninixchange',
     demoUrl: 'https://paninixchange.vercel.app/',
@@ -221,41 +230,36 @@ const pinnedRepos = [
   {
     name: 'kueski-extension',
     lang: 'JavaScript',
-    stars: 1,
     description: 'Kueski Smart Widget: extensión de navegador (Manifest V3) que actúa como asistente financiero — cupones, saldo y más mientras navegas.',
     url: 'https://github.com/diegodelgadog6/kueski-extension',
   },
   {
+    name: 'AmpelIntelligence',
+    lang: 'Python',
+    description: 'Monitor IoT de tráfico urbano y calidad del aire en tiempo real. ESP32 + Raspberry Pi + MQTT + Flask + MySQL, con visor web en vivo.',
+    url: 'https://github.com/diegodelgadog6/AmpelIntelligence',
+  },
+  {
     name: 'Server-chatify',
     lang: 'JavaScript',
-    stars: 1,
-    description: 'Backend de mensajería en tiempo real para Chatify, construido con Express, Socket.IO y PostgreSQL.',
+    description: 'Chatify, app de mensajería en tiempo real: interfaz en React y backend con Express, Socket.IO y PostgreSQL.',
     url: 'https://github.com/diegodelgadog6/Server-chatify',
+    repos: [
+      { label: 'UI', name: 'chatify-app', url: 'https://github.com/diegodelgadog6/chatify-app' },
+      { label: 'Backend', name: 'Server-chatify', url: 'https://github.com/diegodelgadog6/Server-chatify' },
+    ],
     demoUrl: 'https://chatify-app-black.vercel.app/',
   },
   {
     name: 'Server-Postify',
     lang: 'Python',
-    stars: 1,
-    description: 'Backend en Python de Postify, una red social de publicaciones. API y lógica de servidor.',
+    description: 'Postify, red social de publicaciones: interfaz en React y backend en Python con la API y lógica de servidor.',
     url: 'https://github.com/diegodelgadog6/Server-Postify',
+    repos: [
+      { label: 'UI', name: 'ui-postify', url: 'https://github.com/diegodelgadog6/ui-postify' },
+      { label: 'Backend', name: 'Server-Postify', url: 'https://github.com/diegodelgadog6/Server-Postify' },
+    ],
     demoUrl: 'https://ui-postify.vercel.app/profile/e4f72569-8304-4167-882c-c06d6b34da91',
-  },
-  {
-    name: 'AmpelIntelligence',
-    lang: 'Python',
-    stars: 1,
-    description: 'Monitor IoT de tráfico urbano y calidad del aire en tiempo real. ESP32 + Raspberry Pi + MQTT + Flask + MySQL, con visor web en vivo.',
-    url: 'https://github.com/diegodelgadog6/AmpelIntelligence',
-    demoUrl: 'https://ampelintelligence-production.up.railway.app',
-  },
-  {
-    name: 'console-retro-game',
-    lang: 'JavaScript',
-    stars: 1,
-    description: 'Interfaz retro estilo consola para explorar Pokémon y jugar una batalla 1v1. Consume la PokeAPI, con modo combate completo (HP, ataques y pantalla de ganador). React, Vite y Tailwind CSS.',
-    url: 'https://github.com/diegodelgadog6/console-retro-game',
-    demoUrl: 'https://console-retro-game.vercel.app',
   },
 ]
 
@@ -435,7 +439,13 @@ function App() {
                         <span className="lang-dot" style={{ background: langColors[repo.lang] }} />
                         {repo.lang}
                       </span>
-                      <span className="repo-stars">★ {repo.stars}</span>
+                      {repo.stars > 0 && <span className="repo-stars">★ {repo.stars}</span>}
+                      {repo.forks > 0 && <span className="repo-forks"><FaCodeFork /> {repo.forks}</span>}
+                      {repo.repos?.map((r) => (
+                        <a className="repo-link" key={r.url} href={r.url} target="_blank" rel="noreferrer" title={r.name}>
+                          <FaGithub /> {r.label}
+                        </a>
+                      ))}
                       {repo.demoUrl && (
                         <a className="repo-demo" href={repo.demoUrl} target="_blank" rel="noreferrer">
                           ↗ Live demo

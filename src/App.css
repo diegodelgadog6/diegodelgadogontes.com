@@ -590,6 +590,7 @@ main {
   font-weight: 700;
   font-size: 1.05rem;
   text-decoration: none;
+  overflow-wrap: anywhere;
   transition: color 0.3s ease;
 }
 .repo-name:hover { color: var(--primary); text-decoration: underline; }
@@ -632,6 +633,18 @@ main {
 }
 
 .repo-stars { color: var(--primary); }
+.repo-forks { display: inline-flex; align-items: center; gap: 0.3rem; }
+
+.repo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.repo-link:hover { color: var(--primary); }
 
 .repo-demo {
   color: var(--accent);
