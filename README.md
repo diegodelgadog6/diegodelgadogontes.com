@@ -1,57 +1,62 @@
-# Portafolio Personal - React + Vite
+# diegodelgadogontes.com
 
-Este proyecto es un portafolio web personal desarrollado con React y Vite.
-Su objetivo es presentar informacion profesional, proyectos, experiencia y formas de contacto en una interfaz moderna, rapida y responsiva.
+Portafolio personal de Diego Delgado. Presenta mi perfil, mis proyectos destacados de GitHub y un formulario de contacto que envía correos.
 
-## Sitio desplegado
+**Sitio en producción:** https://diegodelgadogontes.com
 
-Puedes ver la version en produccion aqui:
+## Características
 
-- https://diegodelgadogontes.com
+- Perfil con diseño inspirado en GitHub: tarjeta de identidad, README y proyectos fijados.
+- Tarjetas de proyecto con enlaces al repositorio, al backend (cuando existe) y a la demo.
+- Formulario de contacto que envía el mensaje por correo mediante [Resend](https://resend.com).
+- Animaciones con Framer Motion que se desactivan si el sistema pide reducir el movimiento.
 
-## Caracteristicas principales
+## Tecnologías
 
-- Navegacion entre secciones del portafolio.
-- Pagina de inicio con seccion destacada (Hero).
-- Secciones de About, Experience, Projects, Resume y Contact.
-- Estilos personalizados con CSS por componentes.
-- Despliegue en Vercel.
+- React 19 y Vite
+- Framer Motion y React Icons
+- Función serverless de Vercel (`api/server.js`) con Resend
+- Despliegue en Vercel
 
-## Tecnologias usadas
+## Estructura
 
-- React
-- Vite
-- JavaScript (JSX)
-- CSS
+```text
+src/
+  App.jsx        Página completa: perfil, proyectos y contacto
+  App.css        Estilos de la página
+  index.css      Estilos globales
+  main.jsx       Punto de entrada
+api/
+  server.js      Endpoint POST /api/server que envía el formulario de contacto
+vercel.json      Build y reglas de enrutamiento
+```
 
-## Estructura general
+## Desarrollo local
 
-- src/components: componentes reutilizables como Navbar y Hero.
-- src/pages: paginas principales del sitio (Home, About, Experience, Projects, Resume, Contact).
-- api: backend simple para endpoints (si aplica en el despliegue).
-
-## Ejecutar el proyecto en local
-
-1. Instala dependencias:
+Requiere Node.js 20 o superior.
 
 ```bash
 npm install
-```
-
-2. Inicia el servidor de desarrollo:
-
-```bash
 npm run dev
 ```
 
-3. Abre en el navegador la URL que muestra la terminal (normalmente http://localhost:5173).
+La página queda en http://localhost:5173.
 
-## Build de produccion
+`npm run dev` solo levanta el frontend. Para probar el formulario de contacto, ejecuta el proyecto con `vercel dev` y define la variable de entorno:
 
 ```bash
-npm run build
+RESEND_API_KEY=tu_api_key
 ```
+
+## Scripts
+
+| Comando | Descripción |
+| --- | --- |
+| `npm run dev` | Servidor de desarrollo |
+| `npm run build` | Build de producción en `dist/` |
+| `npm run preview` | Sirve el build localmente |
+| `npm run lint` | Ejecuta ESLint |
 
 ## Autor
 
-Diego Delgado
+**Diego Alejandro Delgado Gontes** · [GitHub](https://github.com/diegodelgadog6) · [LinkedIn](https://www.linkedin.com/in/diegodelgadog6)
