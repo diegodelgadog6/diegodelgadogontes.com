@@ -589,11 +589,9 @@ main {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   font-size: 1.05rem;
-  text-decoration: none;
+  margin: 0;
   overflow-wrap: anywhere;
-  transition: color 0.3s ease;
 }
-.repo-name:hover { color: var(--primary); text-decoration: underline; }
 
 .repo-badge {
   margin-left: auto;
@@ -634,6 +632,17 @@ main {
 
 .repo-stars { color: var(--primary); }
 .repo-forks { display: inline-flex; align-items: center; gap: 0.3rem; }
+
+.repo-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.1rem;
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.82rem;
+}
 
 .repo-link {
   display: inline-flex;

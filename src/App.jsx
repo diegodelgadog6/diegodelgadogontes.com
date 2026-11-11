@@ -209,57 +209,63 @@ const langColors = {
   'C#': '#178600',
 }
 
-// Same repos and order as the pins on github.com/diegodelgadog6.
-// `repos` lists both GitHub repos when the UI and the backend live apart.
+// Same projects and order as the pins on github.com/diegodelgadog6.
+// `repos` lists every GitHub repo of the project (UI and backend when they live apart).
 const pinnedRepos = [
   {
-    name: 'Karlocc86/challenge-multiagent-modelation',
+    title: 'Simulación Multiagente INE',
     lang: 'Python',
     stars: 2,
     forks: 1,
     description: 'Simulación de eventos discretos de una casilla electoral mexicana con Python/Mesa, Flask y Unity.',
-    url: 'https://github.com/Karlocc86/challenge-multiagent-modelation',
+    repos: [
+      { label: 'GitHub', name: 'Karlocc86/challenge-multiagent-modelation', url: 'https://github.com/Karlocc86/challenge-multiagent-modelation' },
+    ],
   },
   {
-    name: 'paninixchange',
+    title: 'PaniniXchange',
     lang: 'JavaScript',
     description: 'La red social del coleccionista del Mundial 2026 — conecta coleccionistas cercanos para intercambiar cromos Panini. Interfaz en React 19, Vite y Tailwind CSS.',
-    url: 'https://github.com/diegodelgadog6/paninixchange',
-    demoUrl: 'https://paninixchange.vercel.app/',
+    repos: [
+      { label: 'GitHub', name: 'paninixchange', url: 'https://github.com/diegodelgadog6/paninixchange' },
+    ],
+    demoUrl: 'https://paninixchange.diegodelgadogontes.com',
   },
   {
-    name: 'kueski-extension',
+    title: 'Kueski Smart Widget',
     lang: 'JavaScript',
-    description: 'Kueski Smart Widget: extensión de navegador (Manifest V3) que actúa como asistente financiero — cupones, saldo y más mientras navegas.',
-    url: 'https://github.com/diegodelgadog6/kueski-extension',
+    description: 'Extensión de navegador (Manifest V3) que actúa como asistente financiero — cupones, saldo y más mientras navegas.',
+    repos: [
+      { label: 'GitHub', name: 'kueski-extension', url: 'https://github.com/diegodelgadog6/kueski-extension' },
+    ],
   },
   {
-    name: 'AmpelIntelligence',
+    title: 'Ampel Intelligence',
     lang: 'Python',
     description: 'Monitor IoT de tráfico urbano y calidad del aire en tiempo real. ESP32 + Raspberry Pi + MQTT + Flask + MySQL, con visor web en vivo.',
-    url: 'https://github.com/diegodelgadog6/AmpelIntelligence',
+    repos: [
+      { label: 'GitHub', name: 'AmpelIntelligence', url: 'https://github.com/diegodelgadog6/AmpelIntelligence' },
+    ],
   },
   {
-    name: 'Server-chatify',
+    title: 'Chatify',
     lang: 'JavaScript',
-    description: 'Chatify, app de mensajería en tiempo real: interfaz en React y backend con Express, Socket.IO y PostgreSQL.',
-    url: 'https://github.com/diegodelgadog6/Server-chatify',
+    description: 'App de mensajería en tiempo real: interfaz en React y backend con Express, Socket.IO y PostgreSQL.',
     repos: [
       { label: 'UI', name: 'chatify-app', url: 'https://github.com/diegodelgadog6/chatify-app' },
       { label: 'Backend', name: 'Server-chatify', url: 'https://github.com/diegodelgadog6/Server-chatify' },
     ],
-    demoUrl: 'https://chatify-app-black.vercel.app/',
+    demoUrl: 'https://chatify.diegodelgadogontes.com',
   },
   {
-    name: 'Server-Postify',
+    title: 'Postify',
     lang: 'Python',
-    description: 'Postify, red social de publicaciones: interfaz en React y backend en Python con la API y lógica de servidor.',
-    url: 'https://github.com/diegodelgadog6/Server-Postify',
+    description: 'Red social de publicaciones: interfaz en React y backend en Python con la API y lógica de servidor.',
     repos: [
       { label: 'UI', name: 'ui-postify', url: 'https://github.com/diegodelgadog6/ui-postify' },
       { label: 'Backend', name: 'Server-Postify', url: 'https://github.com/diegodelgadog6/Server-Postify' },
     ],
-    demoUrl: 'https://ui-postify.vercel.app/profile/e4f72569-8304-4167-882c-c06d6b34da91',
+    demoUrl: 'https://postify.diegodelgadogontes.com/profile/e4f72569-8304-4167-882c-c06d6b34da91',
   },
 ]
 
@@ -346,7 +352,7 @@ function App() {
               <li><FaLocationDot className="id-meta-icon" /> Zapopan, Jal, Mexico</li>
               <li>
                 <FaLink className="id-meta-icon" />
-                <a href="https://diegodelgadogontes.com" target="_blank" rel="noreferrer">diegodelgadogontes.com</a>
+                <a href="https://profile-dev-taupe.vercel.app" target="_blank" rel="noreferrer">profile-dev-taupe.vercel.app</a>
               </li>
             </ul>
             <div className="id-actions">
@@ -393,8 +399,8 @@ function App() {
                 <div className="readme-line">
                   <span className="readme-key">My Web Site</span>
                   <span className="readme-sep">: </span>
-                  <a className="readme-val readme-link" href="https://diegodelgadogontes.com" target="_blank" rel="noreferrer">
-                    diegodelgadogontes.com
+                  <a className="readme-val readme-link" href="https://profile-dev-taupe.vercel.app" target="_blank" rel="noreferrer">
+                    profile-dev-taupe.vercel.app
                   </a>
                 </div>
                 </div>
@@ -418,7 +424,7 @@ function App() {
             </MotionDiv>
             <div className="repos-grid">
               {pinnedRepos.map((repo, ri) => (
-                <TiltCard className="repo-card" key={repo.name}>
+                <TiltCard className="repo-card" key={repo.title}>
                   <MotionDiv
                     className="repo-inner"
                     variants={{
@@ -430,7 +436,7 @@ function App() {
                     }}
                   >
                     <div className="repo-top">
-                      <a className="repo-name" href={repo.url} target="_blank" rel="noreferrer">{repo.name}</a>
+                      <h3 className="repo-name">{repo.title}</h3>
                       <span className="repo-badge">Public</span>
                     </div>
                     <p className="repo-desc">{repo.description}</p>
@@ -441,7 +447,9 @@ function App() {
                       </span>
                       {repo.stars > 0 && <span className="repo-stars">★ {repo.stars}</span>}
                       {repo.forks > 0 && <span className="repo-forks"><FaCodeFork /> {repo.forks}</span>}
-                      {repo.repos?.map((r) => (
+                    </div>
+                    <div className="repo-links">
+                      {repo.repos.map((r) => (
                         <a className="repo-link" key={r.url} href={r.url} target="_blank" rel="noreferrer" title={r.name}>
                           <FaGithub /> {r.label}
                         </a>
