@@ -140,15 +140,6 @@ function TiltCard({ children, className }) {
   )
 }
 
-/* ───────── Glitch Text ───────── */
-function GlitchText({ text }) {
-  return (
-    <span className="glitch-wrapper">
-      <span className="glitch-text" data-text={text}>{text}</span>
-    </span>
-  )
-}
-
 /* ───────── ASCII art (GitHub README) ───────── */
 const asciiArt = [
   '                                 .-##*=:..',
@@ -189,16 +180,20 @@ const asciiArt = [
 ].join('\n')
 
 /* ───────── data: README "neofetch" lines ───────── */
+// Mirrors diego-terminal.svg in github.com/diegodelgadog6/diegodelgadog6.
+// `tag` is the highlighted hashtag shown after the value.
 const readmeLines = [
   { key: 'OS', value: 'Bazzite, Windows 11' },
   { key: 'Uptime', value: '20 years old' },
-  { key: 'Host', value: 'Tecnológico de Monterrey #GDL' },
-  { key: 'Kernel', value: 'CS & Technology Student #ITC' },
+  { key: 'Host', value: 'Tecnológico de Monterrey', tag: '#GDL' },
+  { key: 'Kernel', value: 'CS & Technology Student', tag: '#ITC' },
   { key: 'IDE', value: 'Cursor, VSCode' },
   { spacer: true },
-  { key: 'Languages.Code', value: 'Python, C++, JS' },
-  { key: 'Frameworks', value: 'React, Flask, Tailwind CSS' },
-  { key: 'Tools', value: 'Socket.IO, MySQL, Git' },
+  { key: 'Languages.Code', value: 'Python, C++, C#, JS' },
+  { key: 'Frontend', value: 'React, Tailwind CSS, Vite' },
+  { key: 'Backend', value: 'Node.js, Express, Flask, FastAPI' },
+  { key: 'Data', value: 'PostgreSQL, MySQL, MQTT, Socket.IO' },
+  { key: 'Tools', value: 'Git, Unity, Vercel, Railway' },
   { key: 'Languages.Human', value: 'Spanish, English' },
 ]
 
@@ -375,16 +370,13 @@ function App() {
                       <span className="readme-key">{line.key}</span>
                       <span className="readme-sep">: </span>
                       <span className="readme-val">{line.value}</span>
+                      {line.tag && <span className="readme-tag"> {line.tag}</span>}
                     </div>
                   )
                 )}
                 <div className="readme-spacer" />
-                <div className="readme-run">
-                  <GlitchText text='run("think for yourself");' />
-                </div>
-                <div className="readme-spacer" />
                 <div className="readme-line">
-                  <span className="readme-key">My Web Site</span>
+                  <span className="readme-key">Portfolio</span>
                   <span className="readme-sep">: </span>
                   <a className="readme-val readme-link" href="https://diegodelgadogontes.com" target="_blank" rel="noreferrer">
                     diegodelgadogontes.com

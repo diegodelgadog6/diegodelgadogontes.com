@@ -346,7 +346,7 @@ main {
   border-radius: var(--radius-full);
 }
 
-.readme-line { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.readme-line { overflow-wrap: anywhere; }
 .readme-spacer { height: 0.9rem; }
 
 .readme-key { color: var(--primary); font-weight: 700; }
@@ -360,53 +360,7 @@ main {
 }
 .readme-link:hover { border-bottom-color: var(--accent); }
 
-.readme-run {
-  color: var(--accent);
-  font-size: 1.02em;
-}
-
-/* glitch */
-.glitch-wrapper { position: relative; display: inline-block; }
-.glitch-text {
-  position: relative;
-  display: inline-block;
-  animation: glitchSkew 8s infinite linear alternate-reverse;
-}
-.glitch-text::before,
-.glitch-text::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  opacity: 0.7;
-}
-.glitch-text::before {
-  color: var(--primary);
-  animation: glitch1 3s infinite linear alternate-reverse;
-  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
-}
-.glitch-text::after {
-  color: var(--accent-secondary);
-  animation: glitch2 2.5s infinite linear alternate-reverse;
-  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
-}
-@keyframes glitch1 {
-  0%, 90%, 100% { transform: translate(0); }
-  92% { transform: translate(-3px, 1px); }
-  94% { transform: translate(3px, -1px); }
-  96% { transform: translate(-2px, 0); }
-}
-@keyframes glitch2 {
-  0%, 88%, 100% { transform: translate(0); }
-  90% { transform: translate(2px, -1px); }
-  93% { transform: translate(-3px, 1px); }
-  95% { transform: translate(1px, 0); }
-}
-@keyframes glitchSkew {
-  0%, 94%, 100% { transform: skewX(0deg); }
-  95% { transform: skewX(0.5deg); }
-  97% { transform: skewX(-0.3deg); }
-}
+.readme-tag { color: #ffd600; }
 
 /* ─── BUTTONS ─── */
 .btn {
@@ -797,7 +751,6 @@ main {
 @media (max-width: 480px) {
   .profile { width: 94%; }
   .readme-body { padding: 1.2rem; }
-  .readme-line { white-space: normal; }
 }
 
 /* ─── Reduced motion ─── */
