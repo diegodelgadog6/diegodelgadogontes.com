@@ -172,7 +172,7 @@ main {
   width: min(92%, 1200px);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 0.82fr 1.18fr;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
   gap: clamp(1.5rem, 3vw, 3rem);
   align-items: center;
   padding: clamp(2.5rem, 5vw, 4rem) 0 2rem;
@@ -275,6 +275,7 @@ main {
   background: linear-gradient(180deg, rgba(8, 12, 22, 0.92), rgba(4, 6, 12, 0.96));
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.03);
   transform-style: preserve-3d;
+  container-type: inline-size;
 }
 
 .readme-bar {
@@ -330,6 +331,13 @@ main {
   font-family: var(--mono);
   font-size: clamp(0.78rem, 1.05vw, 0.96rem);
   line-height: 1.85;
+}
+
+/* Not enough width for art + info side by side: stack them */
+@container (max-width: 720px) {
+  .readme-body { flex-direction: column; gap: 1rem; }
+  .readme-ascii { align-self: center; }
+  .readme-info { width: 100%; }
 }
 
 .readme-user {
@@ -743,9 +751,7 @@ main {
 }
 
 @media (max-width: 560px) {
-  .readme-body { flex-direction: column; gap: 1rem; }
-  .readme-ascii { align-self: center; font-size: 4.6px; }
-  .readme-info { width: 100%; }
+  .readme-ascii { font-size: 4.6px; }
 }
 
 @media (max-width: 480px) {
